@@ -1,8 +1,8 @@
 --- 
 title: |
        |  KBEATBOX     \includegraphics[height=3cm]{img/kbeatbox-logo.pdf}
-       | A finite-state use case 
-subtitle: "Presentation "
+       | Lesson learned : Architecturing your Cut-off and time barriers KStream app with test and replay
+subtitle: "KBeatbox - "
 author: tenaven
 date: 06/09/2019
 tenaven: yes
