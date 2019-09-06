@@ -1,0 +1,74 @@
+@startuml
+!include style.puml
+
+!define SPRITESURL https://raw.githubusercontent.com/rabelenda/cicon-plantuml-sprites/v1.0/sprites
+!includeurl SPRITESURL/kafka.puml
+!includeurl SPRITESURL/java.puml
+!includeurl SPRITESURL/cassandra.puml
+
+queue "input" as input
+
+node "<$kafka> KBeatBox" as KBeatBox
+database  statestore [
+<b><$kafka> StateStore</b>
+
+===
+
+heartBeatStateStore
+---
+taskStates
+---
+ackIndex
+---
+hbIndex
+]
+queue output
+
+frame taskrunner {
+ card task1 #FF8E00
+ card task2 #FF8E00
+ card task3 #FF8E00
+ task1 -[hidden]- task2
+ task2 -[hidden]- task3
+}
+
+actor GUI
+node "GUI notifier" as notify_GUI
+frame DistributedHeartBeatGenerator {
+node "generator master" as gmaster #FF8E00
+node "generator passive 1" as gpassive1 #FF8E00
+node "generator passive 2" as gpassive2 #FF8E00
+gmaster -[hidden]- gpassive1
+gpassive1 -[hidden]- gpassive2
+}
+node "Calendar Splitter" as calendar_splitter
+node RFM
+
+input -right-> KBeatBox
+KBeatBox <=up=> statestore
+KBeatBox -down-> output
+
+
+GUI ..0 KBeatBox  : http query
+
+
+output --> notify_GUI
+notify_GUI --> GUI
+taskrunner -down-> notify_GUI
+
+output --|> task1
+output --|> task2
+output --|> task3
+
+
+task1 --|> input : ack
+task2 --|> input : ack
+task3 --|> input : ack
+
+DistributedHeartBeatGenerator --> input : HeartBeat
+RFM --> calendar_splitter
+calendar_splitter -up-> input : ScheduleTask
+GUI --> input : ScheduleTask
+
+
+@enduml

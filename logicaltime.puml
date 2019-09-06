@@ -1,0 +1,10 @@
+@startgantt
+[task A] lasts 5 days
+[task B] lasts 7 days
+[task C] lasts 7 days
+[task D] lasts 4 days
+[task B] starts at [task A]'s end
+[task C] starts at [task A]'s end
+[task D] starts at [task B]'s end
+[task D] starts at [task C]'s end
+@endgantt

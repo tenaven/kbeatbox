@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="803px" preserveAspectRatio="none" style="width:1053px;height:803px;" version="1.1" viewBox="0 0 1053 803" width="1053px" zoomAndPan="magnify"><defs><filter height="300%" id="f31dnnxww26pc" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--cluster taskrunner--><rect fill="#FFBC68" filter="url(#f31dnnxww26pc)" height="369" style="stroke: #000000; stroke-width: 1.5;" width="125" x="646" y="286"/><path d="M743,287 L743,295.2969 L733,305.2969 L646,305.2969 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="87" x="649" y="299.9951">taskrunner</text><!--cluster DistributedHeartBeatGenerator--><rect fill="#FFBC68" filter="url(#f31dnnxww26pc)" height="480.5" style="stroke: #000000; stroke-width: 1.5;" width="262" x="30" y="45.5"/><path d="M286,46.5 L286,54.7969 L276,64.7969 L30,64.7969 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="246" x="33" y="59.4951">DistributedHeartBeatGenerator</text><!--entity task1--><rect fill="#FF8E00" filter="url(#f31dnnxww26pc)" height="22.2969" style="stroke: #000000; stroke-width: 1.5;" width="58" x="670" y="329"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="38" x="680" y="344.9951">task1</text><!--entity task2--><rect fill="#FF8E00" filter="url(#f31dnnxww26pc)" height="22.2969" style="stroke: #000000; stroke-width: 1.5;" width="58" x="670" y="468"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="38" x="680" y="483.9951">task2</text><!--entity task3--><rect fill="#FF8E00" filter="url(#f31dnnxww26pc)" height="22.2969" style="stroke: #000000; stroke-width: 1.5;" width="58" x="670" y="609"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="38" x="680" y="624.9951">task3</text><!--entity gmaster--><polygon fill="#FF8E00" filter="url(#f31dnnxww26pc)" points="76,98.5,86,88.5,236,88.5,236,124.7969,226,134.7969,76,134.7969,76,98.5" style="stroke: #001624; stroke-width: 1.5;"/><line style="stroke: #001624; stroke-width: 1.5;" x1="226" x2="235" y1="98.5" y2="89.5"/><line style="stroke: #001624; stroke-width: 1.5;" x1="76" x2="226" y1="98.5" y2="98.5"/><line style="stroke: #001624; stroke-width: 1.5;" x1="226" x2="226" y1="98.5" y2="134.7969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="120" x="91" y="121.4951">generator master</text><!--entity gpassive1--><polygon fill="#FF8E00" filter="url(#f31dnnxww26pc)" points="67.5,327,77.5,317,244.5,317,244.5,353.2969,234.5,363.2969,67.5,363.2969,67.5,327" style="stroke: #001624; stroke-width: 1.5;"/><line style="stroke: #001624; stroke-width: 1.5;" x1="234.5" x2="243.5" y1="327" y2="318"/><line style="stroke: #001624; stroke-width: 1.5;" x1="67.5" x2="234.5" y1="327" y2="327"/><line style="stroke: #001624; stroke-width: 1.5;" x1="234.5" x2="234.5" y1="327" y2="363.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="137" x="82.5" y="349.9951">generator passive 1</text><!--entity gpassive2--><polygon fill="#FF8E00" filter="url(#f31dnnxww26pc)" points="67.5,466,77.5,456,244.5,456,244.5,492.2969,234.5,502.2969,67.5,502.2969,67.5,466" style="stroke: #001624; stroke-width: 1.5;"/><line style="stroke: #001624; stroke-width: 1.5;" x1="234.5" x2="243.5" y1="466" y2="457"/><line style="stroke: #001624; stroke-width: 1.5;" x1="67.5" x2="234.5" y1="466" y2="466"/><line style="stroke: #001624; stroke-width: 1.5;" x1="234.5" x2="234.5" y1="466" y2="502.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="137" x="82.5" y="488.9951">generator passive 2</text><!--entity input--><path d="M550.5,327 L595.5,327 C600.5,327 600.5,340.1484 600.5,340.1484 C600.5,340.1484 600.5,353.2969 595.5,353.2969 L550.5,353.2969 C545.5,353.2969 545.5,340.1484 545.5,340.1484 C545.5,340.1484 545.5,327 550.5,327 " fill="#F5C0E4" filter="url(#f31dnnxww26pc)" style="stroke: #001624; stroke-width: 1.5;"/><path d="M595.5,327 C590.5,327 590.5,340.1484 590.5,340.1484 C590.5,353.2969 595.5,353.2969 595.5,353.2969 " fill="none" style="stroke: #001624; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="35" x="550.5" y="344.9951">input</text><!--entity KBeatBox--><polygon fill="#658B00" filter="url(#f31dnnxww26pc)" points="872.5,311,882.5,301,1031.5,301,1031.5,369,1021.5,379,872.5,379,872.5,311" style="stroke: #001624; stroke-width: 1.5;"/><line style="stroke: #001624; stroke-width: 1.5;" x1="1021.5" x2="1030.5" y1="311" y2="302"/><line style="stroke: #001624; stroke-width: 1.5;" x1="872.5" x2="1021.5" y1="311" y2="311"/><line style="stroke: #001624; stroke-width: 1.5;" x1="1021.5" x2="1021.5" y1="311" y2="379"/><image height="48" width="48" x="887.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAACVElEQVR42u2ZsUoDQRCG8wq+gq/gK/gKPoK2lmJtIwgWVmqZTrGxErFKJ2hhI9gI6QQLbQTL+OHCz7C3d5kNk0vQLMeRXMbbf2f++Wd2HWwfDZbqGqwAhQI6vd4avz1Ofsf75+vN/eEiAY2eziaNAb7dk7UFALoa7QkEvpGfGM/juwUA0vTD25305GC48fX9kR4eX2z2Coj5is4AXHoeSCaXUdvEAgq9/reHuEQXP4d4iDH3qjSsUCDxGhyCwnh4uexIyVoXVjiTlxZ1yCNXfp7VBZgw4Q+pEZ7ocCSEYw3c9YRf42vZ/vl6B28kmBaruN9059wByRltObEYQEzfByCgiEAKQUaLohDAPNEuDJB40BxJLYFrK25SrCRFQulJ/moRKo4MSptNTNqjs5k/WDQQi7JEcmFvU11/5dTruk5IdUOsUjj4wFfLGxAjhtyrmpPpFlpu0eeWWyGt43QLUqND+5VBUW1aJCA+9wHIFq9uhvUUMsuSTEgyObAe4idWAu24Z6kQoEO2+2EOvMKVqbYQA0tRthsVm4NhLWzbKILLBqvyxNTrSTBZP2VimPTTwsKYqOEV7nJYWOmQZPNGVQmm5GsWCIG2fFKDEFlcm28vUrXX9sMDSBNndGlr3OYOSHXG0kVl2HMKMHuTjzOamGw+wjbE3XYmntpSgaa52yoexxTN/FuzWTaKyT0dG0WMrUHRl2Fbae1vbHSKZRW2YeMU6BmVOmuJFJ2+DxsUr9VxjKPP10bMNtSeTXswqe0eAyZZdXHub/76sfAyHpyv/texHNcPS+vwUb/S/+YAAAAASUVORK5CYII=" y="321"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="67" x="939.5" y="365.6982">KBeatBox</text><!--entity statestore--><path d="M865.5,18 C865.5,8 952,8 952,8 C952,8 1038.5,8 1038.5,18 L1038.5,204.7813 C1038.5,214.7813 952,214.7813 952,214.7813 C952,214.7813 865.5,214.7813 865.5,204.7813 L865.5,18 " fill="#033A5E" filter="url(#f31dnnxww26pc)" style="stroke: #FFFFFF; stroke-width: 1.5;"/><path d="M865.5,18 C865.5,28 952,28 952,28 C952,28 1038.5,28 1038.5,18 " fill="none" style="stroke: #FFFFFF; stroke-width: 1.5;"/><image height="48" width="48" x="875.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAACWklEQVR42u2ZsUrEQBCGAz6Cr+Ar2PgA+gKCnWCllY2NIFiftdhY2FiJjWApZ69YClZa2dgIgv354cLPsNnkZo+9JOgtIdzl1uy/M//8M7NWS2vbg7qqBaCigLaOTp9e3ia/4/X94+Tytk9A5zf3k9oA3/LGXg+ADs+uBALbyE6Mu8fnHgBp+d3RRXiyunP8+fUdHq7vjzoFxHpJYwAuPC9IJhegpoUFFHr9bwtxiS5+DvGQydyzwrDyK5B4DQ5BYVyPH1pCMteEGTrES5M65JErP8/ylBo3YQ+pEZZoMSSEYw/c9YRfy+eylc2DFt5IMC1Wcb9uzrkDkjGaYqIfQCzfBSCgiEByQUSLpBDAPNGuGCDxoD6CWgLXZtygWEGKhNIT/FWuCCVHBKVpTpmwR2cje7BpICZlieBivg11/ZVTr6usSkh5Q6ySO/jAV8sbECOG3LOKk+mAtN2kzS23ipSO0wERGi3arwgqVaaVBMTnLgDZ5NXOsI5cZlkSCUkkB9ZC/MROoB33KBQK6JCtflgDq3BFqi3EwJKXbaNiY7BYCds0kuCiwa48PvWmDjBZO0ViGPTTwmIyXsMq3GWwYqlDks0blSVYkq+RIwTa8kkFQsnkWn97kqqdlh8eQFo4oktT4TZ3QMozli5Kw55TgNmLfIxRx2TjEbYh7rYy8eSWDED1bit5HJOc5m/NZmkUg3laGkUm2wlJWxZrpdXfWO8k0ypsY45ToGdU6qgkkne6PmyQvxbHMY46X42YLag9TXthUtseAyZZdXH2N3/9WHiIB+eL/3UM4/oBvPyD6s7zpb0AAAAASUVORK5CYII=" y="32"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="84" x="928.5" y="76.6982">StateStore</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="879.5" y="92.9951"/><path d="M865.5,91.2969 C865.5,101.2969 952,101.2969 952,101.2969 C952,101.2969 1038.5,101.2969 1038.5,91.2969 " fill="none" style="stroke: #FFFFFF; stroke-width: 1.0;"/><path d="M865.5,93.2969 C865.5,103.2969 952,103.2969 952,103.2969 C952,103.2969 1038.5,103.2969 1038.5,93.2969 " fill="none" style="stroke: #FFFFFF; stroke-width: 1.0;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="885.5" y="113.292"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="141" x="881.5" y="129.5889">heartBeatStateStore</text><path d="M865.5,131.8906 C865.5,141.8906 952,141.8906 952,141.8906 C952,141.8906 1038.5,141.8906 1038.5,131.8906 " fill="none" style="stroke: #FFFFFF; stroke-width: 1.0;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="73" x="881.5" y="153.8857">taskStates</text><path d="M865.5,156.1875 C865.5,166.1875 952,166.1875 952,166.1875 C952,166.1875 1038.5,166.1875 1038.5,156.1875 " fill="none" style="stroke: #FFFFFF; stroke-width: 1.0;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="61" x="881.5" y="178.1826">ackIndex</text><path d="M865.5,180.4844 C865.5,190.4844 952,190.4844 952,190.4844 C952,190.4844 1038.5,190.4844 1038.5,180.4844 " fill="none" style="stroke: #FFFFFF; stroke-width: 1.0;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="55" x="881.5" y="202.4795">hbIndex</text><!--entity output--><path d="M803,466 L859,466 C864,466 864,479.1484 864,479.1484 C864,479.1484 864,492.2969 859,492.2969 L803,492.2969 C798,492.2969 798,479.1484 798,479.1484 C798,479.1484 798,466 803,466 " fill="#F5C0E4" filter="url(#f31dnnxww26pc)" style="stroke: #001624; stroke-width: 1.5;"/><path d="M859,466 C854,466 854,479.1484 854,479.1484 C854,492.2969 859,492.2969 859,492.2969 " fill="none" style="stroke: #001624; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="46" x="803" y="483.9951">output</text><!--entity GUI--><ellipse cx="865" cy="720" fill="#FEFECE" filter="url(#f31dnnxww26pc)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M865,728 L865,755 M852,736 L878,736 M865,755 L852,770 M865,755 L878,770 " fill="none" filter="url(#f31dnnxww26pc)" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="24" x="853" y="789.9951">GUI</text><!--entity notify_GUI--><polygon fill="#658B00" filter="url(#f31dnnxww26pc)" points="807.5,607,817.5,597,922.5,597,922.5,633.2969,912.5,643.2969,807.5,643.2969,807.5,607" style="stroke: #001624; stroke-width: 1.5;"/><line style="stroke: #001624; stroke-width: 1.5;" x1="912.5" x2="921.5" y1="607" y2="598"/><line style="stroke: #001624; stroke-width: 1.5;" x1="807.5" x2="912.5" y1="607" y2="607"/><line style="stroke: #001624; stroke-width: 1.5;" x1="912.5" x2="912.5" y1="607" y2="643.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="75" x="822.5" y="629.9951">GUI notifier</text><!--entity calendar_splitter--><polygon fill="#658B00" filter="url(#f31dnnxww26pc)" points="316.5,466,326.5,456,469.5,456,469.5,492.2969,459.5,502.2969,316.5,502.2969,316.5,466" style="stroke: #001624; stroke-width: 1.5;"/><line style="stroke: #001624; stroke-width: 1.5;" x1="459.5" x2="468.5" y1="466" y2="457"/><line style="stroke: #001624; stroke-width: 1.5;" x1="316.5" x2="459.5" y1="466" y2="466"/><line style="stroke: #001624; stroke-width: 1.5;" x1="459.5" x2="459.5" y1="466" y2="502.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="113" x="331.5" y="488.9951">Calendar Splitter</text><!--entity RFM--><polygon fill="#658B00" filter="url(#f31dnnxww26pc)" points="317,327,327,317,387,317,387,353.2969,377,363.2969,317,363.2969,317,327" style="stroke: #001624; stroke-width: 1.5;"/><line style="stroke: #001624; stroke-width: 1.5;" x1="377" x2="386" y1="327" y2="318"/><line style="stroke: #001624; stroke-width: 1.5;" x1="317" x2="377" y1="327" y2="327"/><line style="stroke: #001624; stroke-width: 1.5;" x1="377" x2="377" y1="327" y2="363.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="30" x="332" y="349.9951">RFM</text><!--link task1 to task2--><!--link task2 to task3--><!--link gmaster to gpassive1--><!--link gpassive1 to gpassive2--><!--link input to KBeatBox--><path d="M581.302,326.658 C596.153,304.222 629.664,259.704 671.5,242.5 C708.494,227.287 722.614,233.127 761.5,242.5 C806.794,253.417 853.424,277.035 889.214,298.29 " fill="none" id="input-KBeatBox" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="#001624" points="893.524,300.869,887.8551,292.8152,889.2335,298.3016,883.7472,299.68,893.524,300.869" style="stroke: #001624; stroke-width: 1.0;"/><!--link statestore to KBeatBox--><path d="M952,220.167 C952,246.978 952,274.208 952,295.826 " fill="none" id="statestore-KBeatBox" style="stroke: #001624; stroke-width: 2.0;"/><polygon fill="#001624" points="952,300.913,956,291.913,952,295.913,948,291.913,952,300.913" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="#001624" points="952,215.147,948,224.147,952,220.147,956,224.147,952,215.147" style="stroke: #001624; stroke-width: 1.0;"/><!--link KBeatBox to output--><path d="M918.295,379.162 C894.17,406.477 862.921,441.858 845.103,462.032 " fill="none" id="KBeatBox-output" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="#001624" points="841.725,465.857,850.6812,461.7599,845.0352,462.1096,844.6855,456.4636,841.725,465.857" style="stroke: #001624; stroke-width: 1.0;"/><!--link GUI to KBeatBox--><path d="M880.172,739.9262 C898.219,726.3481 927.475,700.9318 940,671 C980.171,575.001 969.408,449.225 959.744,384.166 " fill="none" id="GUI-KBeatBox" style="stroke: #001624; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><ellipse cx="958.992" cy="379.207" fill="#FFFFFF" rx="6" ry="6" style="stroke: #001624; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="66" x="967" y="563.0669">http query</text><!--link output to notify_GUI--><path d="M834.017,492.335 C839.456,514.57 851.021,561.849 858.38,591.936 " fill="none" id="output-notify_GUI" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="#001624" points="859.613,596.977,861.3618,587.2847,858.4259,592.12,853.5906,589.184,859.613,596.977" style="stroke: #001624; stroke-width: 1.0;"/><!--link notify_GUI to GUI--><path d="M865,643.262 C865,660.128 865,683.882 865,704.7473 " fill="none" id="notify_GUI-GUI" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="#001624" points="865,709.984,869,700.984,865,704.984,861,700.984,865,709.984" style="stroke: #001624; stroke-width: 1.0;"/><!--link taskrunner to notify_GUI--><path d="M771.2242,345.696 C771.6542,345.9517 772.0987,346.2174 772.5572,346.4931 C774.3915,347.5958 776.4506,348.8575 778.6994,350.2718 C787.6945,355.9289 799.7251,364.0272 812.5461,374.1556 C838.1883,394.4125 866.9925,422.79 881,456 C899.881,500.764 886.431,558.384 875.397,591.758 " fill="none" id="taskrunner-notify_GUI" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="#001624" points="873.652,596.901,880.3308,589.6627,875.258,592.1659,872.7547,587.0931,873.652,596.901" style="stroke: #001624; stroke-width: 1.0;"/><!--link output to task1--><path d="M818.211,465.774 C799.066,447.347 761.997,411.184 732,379 C728.247,374.973 724.342,370.627 720.588,366.362 " fill="none" id="output-task1" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="none" points="715.25,370.891,707.496,351.171,725.855,361.751,715.25,370.891" style="stroke: #001624; stroke-width: 1.0;"/><!--link output to task2--><path d="M797.649,479 C781.175,479 764.701,479 748.227,479 " fill="none" id="output-task2" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="none" points="748.133,486,728.133,479,748.133,472,748.133,486" style="stroke: #001624; stroke-width: 1.0;"/><!--link output to task3--><path d="M819.286,492.335 C797.666,515.102 751.108,564.128 722.676,594.068 " fill="none" id="output-task3" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="none" points="727.534,599.118,708.686,608.8,717.383,589.477,727.534,599.118" style="stroke: #001624; stroke-width: 1.0;"/><!--link task1 to input--><path d="M669.659,340 C655.102,340 637.151,340 620.686,340 " fill="none" id="task1-input" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="none" points="620.651,347,600.651,340,620.651,333,620.651,347" style="stroke: #001624; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="22" x="624.25" y="333.0669">ack</text><!--link task2 to input--><path d="M689.754,467.947 C670.619,447.141 626.11,398.746 597.907,368.082 " fill="none" id="task2-input" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="none" points="592.568,372.617,584.182,353.158,602.873,363.14,592.568,372.617" style="stroke: #001624; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="22" x="652" y="422.0669">ack</text><!--link task3 to input--><path d="M686.533,608.879 C670.624,595.301 643.335,569.675 628,542 C597.587,487.113 583.138,414.336 576.982,373.104 " fill="none" id="task3-input" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="none" points="570.016,373.828,574.284,353.073,583.891,371.96,570.016,373.828" style="stroke: #001624; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="22" x="629" y="483.5669">ack</text><!--link DistributedHeartBeatGenerator to input--><path d="M292.425,119.1026 C292.5973,119.2377 292.7721,119.3746 292.9493,119.5135 C293.3036,119.7912 293.6676,120.0765 294.041,120.3692 C300.0165,125.0524 308.4211,131.6395 318.6035,139.6198 C338.9684,155.5806 366.4447,177.1149 395.8226,200.1395 C454.5785,246.1888 520.941,298.1995 553.232,323.507 " fill="none" id="DistributedHeartBeatGenerator-input" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="#001624" points="557.286,326.684,552.6694,317.9842,553.3505,323.5999,547.7348,324.281,557.286,326.684" style="stroke: #001624; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="66" x="473" y="258.0669">HeartBeat</text><!--link RFM to calendar_splitter--><path d="M357.116,363.18 C361.245,380.43 367.43,404.896 374,426 C376.555,434.208 379.644,443.027 382.582,451.03 " fill="none" id="RFM-calendar_splitter" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="#001624" points="384.385,455.894,385.0064,446.0648,382.6466,451.2059,377.5054,448.8462,384.385,455.894" style="stroke: #001624; stroke-width: 1.0;"/><!--link input to calendar_splitter--><path d="M540.404,345.125 C502.433,351.722 440.626,368.349 407,409 C396.249,421.998 393.02,441.033 392.329,455.819 " fill="none" id="input-calendar_splitter" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="#001624" points="545.37,344.295,535.8344,341.8308,540.4382,345.1179,537.1511,349.7217,545.37,344.295" style="stroke: #001624; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="88" x="408" y="422.0669">ScheduleTask</text><!--link GUI to input--><path d="M849.644,748.2364 C792.753,738.8856 594.225,697.4161 535,567 C502.015,494.367 544.007,396.878 563.765,358.02 " fill="none" id="GUI-input" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="#001624" points="566.283,353.149,558.5979,359.3084,563.9877,357.591,565.7051,362.9809,566.283,353.149" style="stroke: #001624; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="88" x="536" y="563.0669">ScheduleTask</text><!--
+@startuml
+
+skinparam arrowColor 001624
+skinparam defaultBorderColor 001624
+
+skinparam class {
+	backgroundColor BFDDF0
+	borderColor 001624
+}
+skinparam state {
+	backgroundColor BFDDF0
+	borderColor 001624
+}
+
+skinparam class<<test>> {
+	backgroundColor F0F0F0
+	borderColor 001624
+}
+
+skinparam note {
+	backgroundColor FFE6C7
+	borderColor 001624
+}
+
+skinparam queue {
+	backgroundColor F5C0E4
+	borderColor 001624
+}
+skinparam node {
+	backgroundColor 658B00
+	fontColor white
+	borderColor 001624
+}
+skinparam rectangle {
+	backgroundColor orange
+	borderColor 001624
+}
+skinparam database {
+    fontColor white
+    borderColor white
+    backgroundColor 033A5E
+}
+
+skinparam frame {
+	backgroundColor FFBC68
+}
+
+sprite $kafka [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000005CFFD8000000000000000000000000000
+000000000000009FFFFFFC10000000000000000000000000
+00000000000007FFFDCFFFB0000000000000000000000000
+0000000000000FFF6003EFF4000000000000000000000000
+0000000000004FFB00006FF8000000000000000000000000
+0000000000006FF800004FF9000000000000000000000000
+0000000000004FFB00006FF8000000000000000000000000
+0000000000000EFF6003EFF4000000464100000000000000
+00000000000005FFFEEFFFA000007FFFFF80000000000000
+000000000000008FFFFFFC000009FFFFFFF9000000000000
+0000000000000003AFFD7000005FFFB8BFFF500000000000
+00000000000000002FF4000000CFF70006FFC00000000000
+00000000000000002FF4000000FFF00000EFF00000000000
+00000000000000002FF4000000FFE00000EFF00000000000
+000000000000002AFFFFC50000EFF40003FFD00000000000
+00000000000006FFFFFFFFB02CFFFF646EFF800000000000
+0000000000005FFFFFFFFFFCFFFFFFFFFFFC000000000000
+000000000001FFFFB658FFFFFF71BFFFFFB1000000000000
+000000000007FFF600002EFFE20003898400000000000000
+00000000000BFFC0000006FFF10000000000000000000000
+00000000000DFF90000003FFF40000000000000000000000
+00000000000DFF90000003FFF30000000000000000000000
+00000000000AFFD0000007FFF10000000000000000000000
+000000000006FFF800005FFFF30005ACA600000000000000
+000000000000EFFFC77AFFFFFF83DFFFFFD2000000000000
+0000000000004FFFFFFFFFFAFFFFFFFFFFFE100000000000
+00000000000004EFFFFFFF701AFFFE525DFF800000000000
+0000000000000018CFFE820000EFF30002FFD00000000000
+00000000000000002FF6000000FFE00000EFF00000000000
+00000000000000002FF6000000EFF10000FFF00000000000
+00000000000000002FF6000000BFF80008FFB00000000000
+0000000000000003AFFE6000004FFFC9CFFF400000000000
+000000000000007FFFFFFC100007FFFFFFF8000000000000
+00000000000005FFFFEFFFA000005EFFFE60000000000000
+0000000000000EFF7004FFF3000000242000000000000000
+0000000000004FFC00007FF8000000000000000000000000
+0000000000005FF800004FF9000000000000000000000000
+0000000000004FFB00006FF8000000000000000000000000
+0000000000001FFF5002EFF5000000000000000000000000
+00000000000008FFFCCFFFC0000000000000000000000000
+000000000000009FFFFFFC10000000000000000000000000
+0000000000000005CFFD8000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+sprite $java [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000800000000000000000000
+000000000000000000000000002C00000000000000000000
+000000000000000000000000009E00000000000000000000
+00000000000000000000000005FC00000000000000000000
+0000000000000000000000005FF600000000000000000000
+000000000000000000000008FFD000000000000000000000
+0000000000000000000001CFFF3016BC3000000000000000
+000000000000000000003EFFF42BFF900000000000000000
+00000000000000000004FFFF35FFF6000000000000000000
+0000000000000000002FFFF22FFE20000000000000000000
+0000000000000000009FFF309FF400000000000000000000
+000000000000000000DFF800CFF000000000000000000000
+000000000000000000CFF200CFF300000000000000000000
+0000000000000000005FF2007FFA00000000000000000000
+0000000000000000000EF6000EFF40000000000000000000
+00000000000000000003EE0004FFA0000000000000000000
+000000000000000000003E7000CFC0000000000000000000
+0000000000000000000002C2009F80000000000000000000
+00000000000000357841000400D900000698300000000000
+0000000000008EFFA100000005400022127FF40000000000
+000000000000FFFFFCA999999ABDFFC10008FB0000000000
+0000000000003BFFFFFFFFFFFFEC84000006FB0000000000
+00000000000000015756664420000000000AF80000000000
+0000000000000008FC20000000146000002FF30000000000
+000000000000000EFFFDB99ABDFFFB1003DF400000000000
+00000000000000019EFFFFFFFFFD95005E91000000000000
+000000000000000002835666420000004100000000000000
+00000000000000004FF8422457BF90000000000000000000
+00000000000246409FFFFFFFFFFFF5000000000000000000
+0000000002CFFB8605BEFFFFFEB71000000C100000000000
+000000000AFFC0000000122100000000008F600000000000
+0000000008FFF92000000000000000004AFE300000000000
+00000000007FFFFDA8644422234689CFFFA1004100000000
+0000000000015ADFFFFFFFFFFFFFFFEB6100199000000000
+000000000000000135688999887431000049FC1000000000
+00000000000000036420000000000248BFFD600000000000
+00000000000000000258ACCCCCDEFFFDB730000000000000
+000000000000000000000012444442000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+sprite $cassandra [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000001030001101140010101000000
+000000000000000000005418AAB748062910412632500000
+00000000000000000159FFFFFFFFFEFAD823519385500300
+0000000000000027CFFFFFFFFFFFFFEFFF882B6C5A007300
+0000000000004BFFFFFFFFFFFFFFFF9049FAFFE9B02B6031
+00000000004CB49FFFFFFFFFFFFFFFE00006EFFF9DF73610
+000000002CC300BFFFFFFE402BFFFFF0000005CFFFFD8000
+00000007D50000CFFFFFF30000CFFFF00000000699610000
+000001CB100000AFFFFFC000008FFFC00000003FA4000000
+00002C700000005FFFFFC000008FFF80000000CFE5000000
+0005B2000000000FFFFFF40000DFFF20000007FFE2200000
+0068000000000007FFFFFF624CFFF80000004DEF78000000
+0530000000000000BFFFFFFFFFFFB0000005F80372300000
+000000000000000008FFFFFFFFF90000019FF93000000000
+2410000122000000004BFFFFFC6000006ECD990000000000
+02578899ADFEB610000015653000049FFF63374000000000
+0000000001E87FDBA8643222579CFECF18C0105100000000
+0000000006204500DFFFFFFDDFF8E5055085000300000000
+0000000020002001A1C6E1A00E7936006008000000000000
+0000000000000004004960300B1913002200400000000000
+000000000000000000090001080050000600100000000000
+000000000000000000520000060040000400000000000000
+000000000000000000300000030020000000000000000000
+000000000000000000000000110020000000000000000000
+000000000000000000000000000010000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+
+queue "input" as input
+
+node "<$kafka> KBeatBox" as KBeatBox
+database  statestore [
+<b><$kafka> StateStore</b>
+
+===
+
+heartBeatStateStore
+- - -
+taskStates
+- - -
+ackIndex
+- - -
+hbIndex
+]
+queue output
+
+frame taskrunner {
+ card task1 #FF8E00
+ card task2 #FF8E00
+ card task3 #FF8E00
+ task1 -[hidden]- task2
+ task2 -[hidden]- task3
+}
+
+actor GUI
+node "GUI notifier" as notify_GUI
+frame DistributedHeartBeatGenerator {
+node "generator master" as gmaster #FF8E00
+node "generator passive 1" as gpassive1 #FF8E00
+node "generator passive 2" as gpassive2 #FF8E00
+gmaster -[hidden]- gpassive1
+gpassive1 -[hidden]- gpassive2
+}
+node "Calendar Splitter" as calendar_splitter
+node RFM
+
+input -right-> KBeatBox
+KBeatBox <=up=> statestore
+KBeatBox -down-> output
+
+
+GUI ..0 KBeatBox  : http query
+
+
+output - -> notify_GUI
+notify_GUI - -> GUI
+taskrunner -down-> notify_GUI
+
+output - -|> task1
+output - -|> task2
+output - -|> task3
+
+
+task1 - -|> input : ack
+task2 - -|> input : ack
+task3 - -|> input : ack
+
+DistributedHeartBeatGenerator - -> input : HeartBeat
+RFM - -> calendar_splitter
+calendar_splitter -up-> input : ScheduleTask
+GUI - -> input : ScheduleTask
+
+
+@enduml
+
+PlantUML version 1.2018.08(Sun Jun 24 14:31:00 CEST 2018)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_152-b16
+Operating System: Linux
+OS Version: 4.13.0-45-generic
+Default Encoding: UTF-8
+Language: fr
+Country: FR
+--></g></svg>

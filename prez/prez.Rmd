@@ -1,0 +1,161 @@
+--- 
+title: |
+       |  KBEATBOX     \includegraphics[height=3cm]{img/kbeatbox-logo.pdf}
+       | A finite-state use case 
+subtitle: "Presentation "
+author: deepPay
+date: 25/01/2018
+#tenaven: yes
+footertext: "Confidential"
+aspectratio: 169
+io: 169
+section-titles: no
+hide_tablelines: yes
+#lang: en
+output: 
+  beamer_presentation:
+    latex_engine: xelatex
+    toc: yes
+    slide_level: 3
+    keep_tex: no
+    template: template-prez.tex
+---
+
+# Introduction
+
+### What is a Mealy finite-state machine ?
+
+\begin{columns}
+\begin{column}{0.2\textwidth}
+\includegraphics[height=4cm]{img/wsCuZy.png} 
+\end{column}
+\begin{column}{0.8\textwidth}
+\begin{itemize}
+\item  It is an abstract machine that can be in exactly one of a finite number of states at any given time.   
+\item The transition from one state to another is in response to a sequence of inputs. It is defined by a list of \textbf{states}, \textbf{initial state}, and \textbf{conditions or triggers} for each transition. 
+\item Because of the \textit{simplicity} of its interfaces and its \textit{determinism}, Mealy finite-state machines are easy to test thoroughly.
+\end{itemize}
+\end{column}
+\end{columns}
+
+### Actions in Transition
+
+* send an event
+* receive an event
+* start a timer (schedule)
+* cancel a timer
+* start another state machine
+* decision or acknowledgement
+
+# Features
+
+### KBeatBox Deployment
+\center
+
+\includegraphics[height=0.9\textheight]{img/deployment.png}
+
+### State diagram
+\center
+
+\includegraphics[height=0.9\textheight]{img/kbeatbox_state_diagram.pdf}
+
+### Unique features of KBeatBox
+
+* Input events run idempotently – multiple schedules for the same heartBeat has the same effect as a single schedule, ( s * e1 * e1 = s * e1 ).
+* Deterministic - every state has exactly one transition for each possible input.
+* Time is **purely logical**. Having a logical time rather than using a wall clock time directly is a huge advantage for testing. Example vector clock.
+* Logic is concise and precise as such, presents no edgecases.
+* Events are chainable, loggable, and replayable.
+* Event cannot be removed before it is scheduled.
+* Does not run a scheduled task before it receives a heartbeat (this means we cannot add task from the past).
+* Able to receive AckEvent, and add events to a chain of AckEvents.
+* Cannot reschedule or remove a task that is already running. 
+
+### Idempotence
+
+Any write operation should always produce the same result for a given number of input parameters no matter the number of requests. This feature ensures consistency in heartbeat events. 
+
+
+### Purely logical time 
+
+* Time is purely logical : 
+    * There is no access to the CPU clock.
+    * Time elapsed is provided through heartbeat messages (that contains an integer) and cause-consequence modelling between tasks. 
+    * It also means the KBeatBox code uses a purely deterministic logic (no side effect from CPU clock). KBeatBox acts deterministically solely on the input it receives.
+    * This allows for easy replayability (everything can be logged). 
+    * This allows for easy testing.
+
+\center 
+\includegraphics[height=2.5cm]{img/logicaltime.pdf}
+
+### Logic : Layered organisation of logic
+
+\begin{tabular}{p{3cm}c}
+\small 946 lines of scala logic, structured in layers & \\ 
+\small Each layer is responsible for one purpose and is tested independently & \includegraphics[height=0.8\textheight, valign=t]{img/FSMclassdiagram.pdf} \\
+\end{tabular}
+
+
+### Limitations
+
+Time is logged so there is a limit on the  granularity of time (few heartBeats)
+
+
+### KBeatBox vs Open Source Schedulers
+
+\arrayrulecolor{black} 
+
+| Scheduler  | Main Language  | Files | Blank | Comment  | Code
+|------------|----------------|-------|-------|----------|---------
+| PagerDuty  | Scala          | 88 | 1145 | 700 | 6068
+| Criteo Cuttle | JS, Scala   | 55 ; 37 | 697 ; 678 | 177 ; 670 | 8163 ; 3793
+| Quckoo     |  Scala         | 360 | 5142 | 6489 | 16064
+|  KBeatBox  |  Scala         | 15 | 212 |344 | 823 
+
+\arrayrulecolor{white} 
+
+### Roadmap
+
+* Ack Timeout (== NACK??? or different component)
+* Gui – be able to display states, current events, past events, ackevent, schedule, and reschedule.
+* Differentiate events and processes (or not events are just empty processes)
+* Cancelling of task
+* Synchronous scheduling
+* Actual deployment on kafkastreams
+
+
+# Appendix
+
+### Kscheduler  deployment
+
+\center
+\includegraphics[height=0.9\textheight]{img/deploy.pdf}
+
+### Simple finite-state machine
+
+\center
+\includegraphics[height=0.9\textheight]{img/openclose.pdf}
+
+
+### State Transition Diagram 
+
+\center
+\includegraphics[height=0.9\textheight]{img/state.pdf}
+
+### State Diagram of KBeatBox 
+
+|              |       State Diagram                                |
+|:------------:|:-------------------------------------:|
+| \includegraphics[height=3cm]{img/tourniquet.png} | \includegraphics[height=3cm]{img/coin_states.png} 
+
+
+\arrayrulecolor{black} 
+
+| Current State  | Input| Next State | Output                |
+|----------------|------|------------|-----------------------|
+| Locked         | coin | Unlocked   | Unlocks turnstile so customer can push through.
+| Locked         | push |   Locked   | none
+| Unlocked       | coin | Unlocked   | none
+| Unlocked       | push |   Locked   | Locks turnstile.
+
+

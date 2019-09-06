@@ -1,0 +1,145 @@
+@startuml
+!include style.puml
+center header <size:30>KBeatBox class diagram
+
+class KafkaArmoringHeartBeatFiniteStateMachine extends ArmoringHeartBeatFiniteStateMachine
+
+note right of KafkaArmoringHeartBeatFiniteStateMachine : responsible for integration with Kafka
+
+abstract class ArmoringHeartBeatFiniteStateMachine extends HeartBeatKeepingFiniteStateMachine
+
+note right of ArmoringHeartBeatFiniteStateMachine : Responsible for protecting the underlying MealyFiniteStateMachine from wrong inputs. Rejects the InputEvents it deems wrong.
+
+abstract class HeartBeatKeepingFiniteStateMachine extends IndexOptimizedLiftedTaskStateFiniteStateMachine {
+}
+
+note right of HeartBeatKeepingFiniteStateMachine : MealyFiniteStateMachine responsible of keeping the most recent heartBeat.
+
+abstract class IndexOptimizedLiftedTaskStateFiniteStateMachine extends LiftedTaskStateFiniteStateMachine {
+}
+
+note right of IndexOptimizedLiftedTaskStateFiniteStateMachine : MealyFiniteStateMachine responsible of keeping two indexes updated to improve performance
+
+abstract class LiftedTaskStateFiniteStateMachine extends PriorityQueueTaskStateFiniteStateMachine {
+}
+
+note right of LiftedTaskStateFiniteStateMachine : MealyFiniteStateMachine responsible for the use of multiple ScheduledTask at the same time.\n (by using an taskname-index Map)
+
+abstract class PriorityQueueTaskStateFiniteStateMachine extends SingleTaskStateFiniteStateMachine {
+}
+
+note right of PriorityQueueTaskStateFiniteStateMachine : Responsible for allowing different priorities of task overriding one another.
+
+abstract class SingleTaskStateFiniteStateMachine extends MealyFiniteStateMachine {
+}
+
+note right of SingleTaskStateFiniteStateMachine : This MealyFiniteStateMachine is specifically responsible for use the at most one ScheduledTask.
+
+abstract class MealyFiniteStateMachine [[src/main/scala/net/deeppay/kmicrostreams/kbeatbox/finitestatemachine/MealyFiniteStateMachine.scala]] {
+  def zero() : State
+  def transition(sourceState: State, event: Event) : (State, List[T])
+  def acceptFact(sourceState: State, fact: Fact) : (State, List[T])
+  def updateTask(sourceState: State, task: ScheduleTask) : (State, List[T])
+
+}
+
+note right of MealyFiniteStateMachine : This is an abstraction of a ([[https://en.wikipedia.org/wiki/Mealy_machine Mealy]]) FiniteStateMachine.\n it uses a State, an InputEvent alphabet as Input and a Trace as Output.
+
+
+
+interface LiftedTaskStateInterface {
+  def getTaskForId(taskId: String) : Option[PriorityQueueTaskState]
+  def updateAListOfTasks(updatedTasks: List[(String, Option[PriorityQueueTaskState])]): this.type
+  def getTaskNamesForFactFromIndex(fact : Fact): List[String]
+}
+
+interface IndexOptimizedLiftedTaskStateInterface {
+  def applyFunctionOnTaskConditionsInIndex(taskName: String, condition: Condition, function: (Set[String], String) => Set[String]): this.type
+}
+
+interface HeartBeatKeepingStateInterface {
+  def update(currentTime : Long) : HeartBeatKeepingStateInterface
+  def getLastReceivedHeartBeatTime() : Option[Long]
+}
+
+class PriorityQueueTaskState {
+  taskName : String,
+  priorityQueue : TreeMap[Int, Set[Condition]] = TreeMap.empty,
+  matchedConditions : Set[Condition],
+  isTriggered : Boolean
+}
+
+class SingleTaskState {
+  taskName : String
+  taskConditions : Set[Condition]
+  val matchedConditions : Set[Condition]
+  isTriggered : Boolean
+}
+
+class LiftedTaskState<<test>> {
+  taskStates : Map[String, PriorityQueueTaskState]
+}
+
+class IndexOptimizedLiftedTaskMockState <<test>> extends LiftedTaskState {
+  val ackIndex :  Map[AckEventCondition, Set[String]] = Map.empty,
+  val hbIndex: TreeMap[HeartBeatCondition, Set[String]] = TreeMap.empty,
+  val taskStates : Map[String, SingleTaskState]
+}
+
+class HeartBeatKeepingMockState <<test>> extends IndexOptimizedLiftedTaskMockState {
+  val lastReceivedHeartBeatTime : Option[Long]
+  val ackIndex :  Map[AckEventCondition, Set[String]] = Map.empty,
+  val hbIndex: TreeMap[HeartBeatCondition, Set[String]] = TreeMap.empty,
+  val taskStates : Map[String, SingleTaskState]
+}
+
+class HeartBeatKeepingKafkaState {
+  var heartBeatStateStore : KeyValueStore[String, Long]
+  var ackIndex : KeyValueStore[String, Set[String]]
+  var hbIndex : KeyValueStore[Long, Set[String]]
+  var taskStates : KeyValueStore[String, SingleTaskState]
+}
+
+LiftedTaskState o-up- PriorityQueueTaskState
+
+LiftedTaskStateInterface o-up- PriorityQueueTaskState
+
+PriorityQueueTaskState .right. PriorityQueueTaskStateFiniteStateMachine
+
+PriorityQueueTaskState o-up- SingleTaskState
+
+SingleTaskState .right. SingleTaskStateFiniteStateMachine
+
+
+LiftedTaskState -right-|> LiftedTaskStateInterface
+
+LiftedTaskStateInterface .right. LiftedTaskStateFiniteStateMachine
+
+IndexOptimizedLiftedTaskStateInterface -up-|> LiftedTaskStateInterface
+
+IndexOptimizedLiftedTaskMockState -right-|> IndexOptimizedLiftedTaskStateInterface
+
+IndexOptimizedLiftedTaskStateInterface .right. IndexOptimizedLiftedTaskStateFiniteStateMachine
+
+HeartBeatKeepingMockState -right-|> HeartBeatKeepingStateInterface
+
+HeartBeatKeepingStateInterface -up-|> IndexOptimizedLiftedTaskStateInterface
+
+HeartBeatKeepingStateInterface .right. HeartBeatKeepingFiniteStateMachine
+
+HeartBeatKeepingKafkaState -up-|> HeartBeatKeepingStateInterface
+
+legend
+|= |= Type |
+|<back:#BFDDF0><U+2002><U+2002><U+2002></back>| Production Code |
+|<back:#F0F0F0><U+2002><U+2002><U+2002></back>| Test code and Mocks |
+|<back:#FFE6C7><U+2002><U+2002><U+2002></back>| notes |
+
+FiniteStateMachines are roughly retrocomptatible :
+
+Tests that are passing for the SingleTaskStateFiniteStateMachine are also passing on all FiniteStateMachine downstream.
+
+endlegend
+
+
+@enduml

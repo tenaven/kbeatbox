@@ -1,0 +1,32 @@
+@startuml
+!include style.puml
+abstract class InputEvent
+
+abstract class Fact extends InputEvent
+class AckEvent extends Fact {
+  val taskId : String
+}
+class HeartBeat extends Fact {
+  val currentTime : Long
+}
+
+class ScheduleTask extends InputEvent {
+  val conditions : Set[Condition]
+}
+
+ScheduleTask o-left- Condition
+
+abstract class Condition {
+  def matches(fact : Fact) : Boolean
+}
+
+AckEventCondition -up-|> Condition
+HeartBeatCondition -up-|> Condition
+
+class AckEventCondition {
+  val matchId : String
+}
+class HeartBeatCondition <<Ordered>> {
+  val fromTime : Long
+}
+@enduml

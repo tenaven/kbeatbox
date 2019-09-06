@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="314px" preserveAspectRatio="none" style="width:725px;height:314px;" version="1.1" viewBox="0 0 725 314" width="725px" zoomAndPan="magnify"><defs><filter height="300%" id="f15srbv4jm9eil" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--class InputEvent--><rect fill="#BFDDF0" filter="url(#f15srbv4jm9eil)" height="48" id="InputEvent" style="stroke: #001624; stroke-width: 1.5;" width="100" x="403" y="8"/><ellipse cx="418" cy="24" fill="#A9DCDF" rx="11" ry="11" style="stroke: #001624; stroke-width: 1.0;"/><path d="M418.1094,19.3438 L416.9531,24.4219 L419.2813,24.4219 L418.1094,19.3438 Z M416.625,17.1094 L419.6094,17.1094 L422.9688,29.5 L420.5156,29.5 L419.75,26.4375 L416.4688,26.4375 L415.7188,29.5 L413.2813,29.5 L416.625,17.1094 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="68" x="432" y="28.1543">InputEvent</text><line style="stroke: #001624; stroke-width: 1.5;" x1="404" x2="502" y1="40" y2="40"/><line style="stroke: #001624; stroke-width: 1.5;" x1="404" x2="502" y1="48" y2="48"/><!--class Fact--><rect fill="#BFDDF0" filter="url(#f15srbv4jm9eil)" height="48" id="Fact" style="stroke: #001624; stroke-width: 1.5;" width="59" x="501.5" y="122.5"/><ellipse cx="516.5" cy="138.5" fill="#A9DCDF" rx="11" ry="11" style="stroke: #001624; stroke-width: 1.0;"/><path d="M516.6094,133.8438 L515.4531,138.9219 L517.7813,138.9219 L516.6094,133.8438 Z M515.125,131.6094 L518.1094,131.6094 L521.4688,144 L519.0156,144 L518.25,140.9375 L514.9688,140.9375 L514.2188,144 L511.7813,144 L515.125,131.6094 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="27" x="530.5" y="142.6543">Fact</text><line style="stroke: #001624; stroke-width: 1.5;" x1="502.5" x2="559.5" y1="154.5" y2="154.5"/><line style="stroke: #001624; stroke-width: 1.5;" x1="502.5" x2="559.5" y1="162.5" y2="162.5"/><!--class AckEvent--><rect fill="#BFDDF0" filter="url(#f15srbv4jm9eil)" height="60.8047" id="AckEvent" style="stroke: #001624; stroke-width: 1.5;" width="112" x="427" y="240"/><ellipse cx="452.35" cy="256" fill="#ADD1B2" rx="11" ry="11" style="stroke: #001624; stroke-width: 1.0;"/><path d="M455.3188,261.6406 Q454.7406,261.9375 454.1,262.0859 Q453.4594,262.2344 452.7563,262.2344 Q450.2563,262.2344 448.9359,260.5859 Q447.6156,258.9375 447.6156,255.8125 Q447.6156,252.6875 448.9359,251.0313 Q450.2563,249.375 452.7563,249.375 Q453.4594,249.375 454.1078,249.5313 Q454.7563,249.6875 455.3188,249.9844 L455.3188,252.7031 Q454.6938,252.125 454.1,251.8516 Q453.5063,251.5781 452.8813,251.5781 Q451.5375,251.5781 450.85,252.6484 Q450.1625,253.7188 450.1625,255.8125 Q450.1625,257.9063 450.85,258.9766 Q451.5375,260.0469 452.8813,260.0469 Q453.5063,260.0469 454.1,259.7734 Q454.6938,259.5 455.3188,258.9219 L455.3188,261.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="57" x="468.65" y="260.1543">AckEvent</text><line style="stroke: #001624; stroke-width: 1.5;" x1="428" x2="538" y1="272" y2="272"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="100" x="433" y="286.2104">val taskId : String</text><line style="stroke: #001624; stroke-width: 1.5;" x1="428" x2="538" y1="292.8047" y2="292.8047"/><!--class HeartBeat--><rect fill="#BFDDF0" filter="url(#f15srbv4jm9eil)" height="60.8047" id="HeartBeat" style="stroke: #001624; stroke-width: 1.5;" width="140" x="574" y="240"/><ellipse cx="608.8" cy="256" fill="#ADD1B2" rx="11" ry="11" style="stroke: #001624; stroke-width: 1.0;"/><path d="M611.7688,261.6406 Q611.1906,261.9375 610.55,262.0859 Q609.9094,262.2344 609.2063,262.2344 Q606.7063,262.2344 605.3859,260.5859 Q604.0656,258.9375 604.0656,255.8125 Q604.0656,252.6875 605.3859,251.0313 Q606.7063,249.375 609.2063,249.375 Q609.9094,249.375 610.5578,249.5313 Q611.2063,249.6875 611.7688,249.9844 L611.7688,252.7031 Q611.1438,252.125 610.55,251.8516 Q609.9563,251.5781 609.3313,251.5781 Q607.9875,251.5781 607.3,252.6484 Q606.6125,253.7188 606.6125,255.8125 Q606.6125,257.9063 607.3,258.9766 Q607.9875,260.0469 609.3313,260.0469 Q609.9563,260.0469 610.55,259.7734 Q611.1438,259.5 611.7688,258.9219 L611.7688,261.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="64" x="627.2" y="260.1543">HeartBeat</text><line style="stroke: #001624; stroke-width: 1.5;" x1="575" x2="713" y1="272" y2="272"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="128" x="580" y="286.2104">val currentTime : Long</text><line style="stroke: #001624; stroke-width: 1.5;" x1="575" x2="713" y1="292.8047" y2="292.8047"/><!--class ScheduleTask--><rect fill="#BFDDF0" filter="url(#f15srbv4jm9eil)" height="60.8047" id="ScheduleTask" style="stroke: #001624; stroke-width: 1.5;" width="182" x="284" y="116"/><ellipse cx="327.35" cy="132" fill="#ADD1B2" rx="11" ry="11" style="stroke: #001624; stroke-width: 1.0;"/><path d="M330.3188,137.6406 Q329.7406,137.9375 329.1,138.0859 Q328.4594,138.2344 327.7563,138.2344 Q325.2563,138.2344 323.9359,136.5859 Q322.6156,134.9375 322.6156,131.8125 Q322.6156,128.6875 323.9359,127.0313 Q325.2563,125.375 327.7563,125.375 Q328.4594,125.375 329.1078,125.5313 Q329.7563,125.6875 330.3188,125.9844 L330.3188,128.7031 Q329.6938,128.125 329.1,127.8516 Q328.5063,127.5781 327.8813,127.5781 Q326.5375,127.5781 325.85,128.6484 Q325.1625,129.7188 325.1625,131.8125 Q325.1625,133.9063 325.85,134.9766 Q326.5375,136.0469 327.8813,136.0469 Q328.5063,136.0469 329.1,135.7734 Q329.6938,135.5 330.3188,134.9219 L330.3188,137.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="87" x="347.65" y="136.1543">ScheduleTask</text><line style="stroke: #001624; stroke-width: 1.5;" x1="285" x2="465" y1="148" y2="148"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="170" x="290" y="162.2104">val conditions : Set[Condition]</text><line style="stroke: #001624; stroke-width: 1.5;" x1="285" x2="465" y1="168.8047" y2="168.8047"/><!--class Condition--><rect fill="#BFDDF0" filter="url(#f15srbv4jm9eil)" height="60.8047" id="Condition" style="stroke: #001624; stroke-width: 1.5;" width="205" x="43.5" y="116"/><ellipse cx="112.25" cy="132" fill="#A9DCDF" rx="11" ry="11" style="stroke: #001624; stroke-width: 1.0;"/><path d="M112.3594,127.3438 L111.2031,132.4219 L113.5313,132.4219 L112.3594,127.3438 Z M110.875,125.1094 L113.8594,125.1094 L117.2188,137.5 L114.7656,137.5 L114,134.4375 L110.7188,134.4375 L109.9688,137.5 L107.5313,137.5 L110.875,125.1094 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="59" x="132.75" y="136.1543">Condition</text><line style="stroke: #001624; stroke-width: 1.5;" x1="44.5" x2="247.5" y1="148" y2="148"/><line style="stroke: #001624; stroke-width: 1.5;" x1="44.5" x2="247.5" y1="156" y2="156"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="193" x="49.5" y="170.2104">def matches(fact : Fact) : Boolean</text><!--class AckEventCondition--><rect fill="#BFDDF0" filter="url(#f15srbv4jm9eil)" height="60.8047" id="AckEventCondition" style="stroke: #001624; stroke-width: 1.5;" width="148" x="6" y="240"/><ellipse cx="21" cy="256" fill="#ADD1B2" rx="11" ry="11" style="stroke: #001624; stroke-width: 1.0;"/><path d="M23.9688,261.6406 Q23.3906,261.9375 22.75,262.0859 Q22.1094,262.2344 21.4063,262.2344 Q18.9063,262.2344 17.5859,260.5859 Q16.2656,258.9375 16.2656,255.8125 Q16.2656,252.6875 17.5859,251.0313 Q18.9063,249.375 21.4063,249.375 Q22.1094,249.375 22.7578,249.5313 Q23.4063,249.6875 23.9688,249.9844 L23.9688,252.7031 Q23.3438,252.125 22.75,251.8516 Q22.1563,251.5781 21.5313,251.5781 Q20.1875,251.5781 19.5,252.6484 Q18.8125,253.7188 18.8125,255.8125 Q18.8125,257.9063 19.5,258.9766 Q20.1875,260.0469 21.5313,260.0469 Q22.1563,260.0469 22.75,259.7734 Q23.3438,259.5 23.9688,258.9219 L23.9688,261.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="116" x="35" y="260.1543">AckEventCondition</text><line style="stroke: #001624; stroke-width: 1.5;" x1="7" x2="153" y1="272" y2="272"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="111" x="12" y="286.2104">val matchId : String</text><line style="stroke: #001624; stroke-width: 1.5;" x1="7" x2="153" y1="292.8047" y2="292.8047"/><!--class HeartBeatCondition--><rect fill="#BFDDF0" filter="url(#f15srbv4jm9eil)" height="66.7422" id="HeartBeatCondition" style="stroke: #001624; stroke-width: 1.5;" width="155" x="189.5" y="237"/><ellipse cx="204.5" cy="255.9688" fill="#ADD1B2" rx="11" ry="11" style="stroke: #001624; stroke-width: 1.0;"/><path d="M207.4688,261.6094 Q206.8906,261.9063 206.25,262.0547 Q205.6094,262.2031 204.9063,262.2031 Q202.4063,262.2031 201.0859,260.5547 Q199.7656,258.9063 199.7656,255.7813 Q199.7656,252.6563 201.0859,251 Q202.4063,249.3438 204.9063,249.3438 Q205.6094,249.3438 206.2578,249.5 Q206.9063,249.6563 207.4688,249.9531 L207.4688,252.6719 Q206.8438,252.0938 206.25,251.8203 Q205.6563,251.5469 205.0313,251.5469 Q203.6875,251.5469 203,252.6172 Q202.3125,253.6875 202.3125,255.7813 Q202.3125,257.875 203,258.9453 Q203.6875,260.0156 205.0313,260.0156 Q205.6563,260.0156 206.25,259.7422 Q206.8438,259.4688 207.4688,258.8906 L207.4688,261.6094 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="64" x="248" y="253.1387">«Ordered»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="123" x="218.5" y="267.1074">HeartBeatCondition</text><line style="stroke: #001624; stroke-width: 1.5;" x1="190.5" x2="343.5" y1="274.9375" y2="274.9375"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="114" x="195.5" y="289.1479">val fromTime : Long</text><line style="stroke: #001624; stroke-width: 1.5;" x1="190.5" x2="343.5" y1="295.7422" y2="295.7422"/><!--link InputEvent to Fact--><path d="M480.508,72.675 C492.072,89.354 505.116,108.167 515.049,122.493 " fill="none" id="InputEvent-Fact" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="none" points="474.616,76.462,468.973,56.038,486.121,68.485,474.616,76.462" style="stroke: #001624; stroke-width: 1.0;"/><!--link Fact to AckEvent--><path d="M514.459,189.542 C507.94,206.1119 500.605,224.7542 494.659,239.8675 " fill="none" id="Fact-AckEvent" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="none" points="508.022,186.783,521.859,170.734,521.05,191.909,508.022,186.783" style="stroke: #001624; stroke-width: 1.0;"/><!--link Fact to HeartBeat--><path d="M566.188,185.49 C582.42,203.015 601.401,223.5086 616.553,239.8675 " fill="none" id="Fact-HeartBeat" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="none" points="560.975,190.164,552.52,170.734,571.247,180.651,560.975,190.164" style="stroke: #001624; stroke-width: 1.0;"/><!--link InputEvent to ScheduleTask--><path d="M425.41,72.793 C415.631,86.897 404.803,102.515 395.696,115.65 " fill="none" id="InputEvent-ScheduleTask" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="none" points="419.879,68.485,437.027,56.038,431.384,76.462,419.879,68.485" style="stroke: #001624; stroke-width: 1.0;"/><!--link Condition to ScheduleTask--><path d="M248.871,146.5 C256.159,146.5 263.447,146.5 270.734,146.5 " fill="none" id="Condition-ScheduleTask" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="283.852,146.5,277.852,142.5,271.852,146.5,277.852,150.5,283.852,146.5" style="stroke: #001624; stroke-width: 1.0;"/><!--link Condition to AckEventCondition--><path d="M120.474,194.685 C112.259,209.8691 103.3928,226.2587 96.0584,239.8163 " fill="none" id="Condition-AckEventCondition" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="none" points="114.35,191.293,130.023,177.033,126.664,197.954,114.35,191.293" style="stroke: #001624; stroke-width: 1.0;"/><!--link Condition to HeartBeatCondition--><path d="M189.513,191.372 C204.38,206.3622 220.736,222.8536 234.574,236.8062 " fill="none" id="Condition-HeartBeatCondition" style="stroke: #001624; stroke-width: 1.0;"/><polygon fill="none" points="184.404,196.162,175.291,177.033,194.345,186.304,184.404,196.162" style="stroke: #001624; stroke-width: 1.0;"/><!--
+@startuml
+
+skinparam arrowColor 001624
+skinparam defaultBorderColor 001624
+
+skinparam class {
+	backgroundColor BFDDF0
+	borderColor 001624
+}
+skinparam state {
+	backgroundColor BFDDF0
+	borderColor 001624
+}
+
+skinparam class<<test>> {
+	backgroundColor FFE6C7
+	borderColor 001624
+}
+
+skinparam note {
+	backgroundColor BFDDF0
+	borderColor 001624
+}
+
+skinparam queue {
+	backgroundColor F5C0E4
+	borderColor 001624
+}
+skinparam node {
+	backgroundColor 658B00
+	fontColor white
+	borderColor 001624
+}
+skinparam rectangle {
+	backgroundColor orange
+	borderColor 001624
+}
+skinparam database {
+    fontColor white
+    borderColor white
+    backgroundColor 033A5E
+}
+
+skinparam frame {
+	backgroundColor FFBC68
+}
+abstract class InputEvent
+
+abstract class Fact extends InputEvent
+class AckEvent extends Fact {
+  val taskId : String
+}
+class HeartBeat extends Fact {
+  val currentTime : Long
+}
+
+class ScheduleTask extends InputEvent {
+  val conditions : Set[Condition]
+}
+
+ScheduleTask o-left- Condition
+
+abstract class Condition {
+  def matches(fact : Fact) : Boolean
+}
+
+AckEventCondition -up-|> Condition
+HeartBeatCondition -up-|> Condition
+
+class AckEventCondition {
+  val matchId : String
+}
+class HeartBeatCondition <<Ordered>> {
+  val fromTime : Long
+}
+@enduml
+
+PlantUML version 1.2018.08(Sun Jun 24 14:31:00 CEST 2018)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_152-b16
+Operating System: Linux
+OS Version: 4.13.0-45-generic
+Default Encoding: UTF-8
+Language: fr
+Country: FR
+--></g></svg>

@@ -1,0 +1,65 @@
+@startuml
+!include style.puml
+state state_FFFFFFFFB4785D8D
+state_FFFFFFFFB4785D8D : <#033A5E>| <color:white>name</color> | <color:white>top of queue conditions</color> | <color:white>status</color> |
+state_FFFFFFFFB4785D8D : <#BFDDF0>| <color:black>A</color> | <color:black>HeartBeatCondition(1)</color> | <color:black>scheduled</color> |
+state state_FFFFFFFFE97DFC35
+state_FFFFFFFFE97DFC35 : <#033A5E>| <color:white>name</color> | <color:white>top of queue conditions</color> | <color:white>status</color> |
+state_FFFFFFFFE97DFC35 : <#BFDDF0>| <color:black>A</color> | <color:black>HeartBeatCondition(1)</color> | <color:black>scheduled</color> |
+state_FFFFFFFFE97DFC35 : <#60AAD9>| <color:black>B</color> | <color:black>HeartBeatCondition(2)</color> | <color:black>scheduled</color> |
+state state_FFFFFFFFA695CDB6
+state_FFFFFFFFA695CDB6 : <#033A5E>| <color:white>name</color> | <color:white>top of queue conditions</color> | <color:white>status</color> |
+state_FFFFFFFFA695CDB6 : <#BFDDF0>| <color:black>A</color> | <color:black>HeartBeatCondition(1)</color> | <color:black>running</color> |
+state_FFFFFFFFA695CDB6 : <#60AAD9>| <color:black>B</color> | <color:black>HeartBeatCondition(2)</color> | <color:black>scheduled</color> |
+state_FFFFFFFFA695CDB6 : <#BFDDF0>| <color:black>C</color> | <color:black>AckEventCondition(A)</color> | <color:black>scheduled</color> |
+state_FFFFFFFFA695CDB6 : <#BFDDF0>| <color:black> </color> | <color:black>AckEventCondition(B)</color> | <color:black> </color> |
+state state_21F189CF
+state_21F189CF : <#033A5E>| <color:white>name</color> | <color:white>top of queue conditions</color> | <color:white>status</color> |
+state_21F189CF : <#BFDDF0>| <color:black>A</color> | <color:black>HeartBeatCondition(1)</color> | <color:black>scheduled</color> |
+state_21F189CF : <#60AAD9>| <color:black>B</color> | <color:black>HeartBeatCondition(2)</color> | <color:black>scheduled</color> |
+state_21F189CF : <#BFDDF0>| <color:black>C</color> | <color:black>AckEventCondition(A)</color> | <color:black>scheduled</color> |
+state_21F189CF : <#BFDDF0>| <color:black> </color> | <color:black>AckEventCondition(B)</color> | <color:black> </color> |
+state state_0
+state_0 : <#033A5E>| <color:white>name</color> | <color:white>top of queue conditions</color> | <color:white>status</color> |
+state_0 : <#BFDDF0>| <color:black>A</color> | <color:black>-</color> | <color:black>scheduled</color> |
+state state_2ED5F1EE
+state_2ED5F1EE : <#033A5E>| <color:white>name</color> | <color:white>top of queue conditions</color> | <color:white>status</color> |
+state_2ED5F1EE : <#BFDDF0>| <color:black>A</color> | <color:black>HeartBeatCondition(4)</color> | <color:black>scheduled</color> |
+state state_2A9827F5
+state_2A9827F5 : <#033A5E>| <color:white>name</color> | <color:white>top of queue conditions</color> | <color:white>status</color> |
+state_2A9827F5 : <#BFDDF0>| <color:black>A</color> | <color:black>HeartBeatCondition(3)</color> | <color:black>scheduled</color> |
+state state_18ED9A77
+state_18ED9A77 : <#033A5E>| <color:white>name</color> | <color:white>top of queue conditions</color> | <color:white>status</color> |
+state_18ED9A77 : <#BFDDF0>| <color:black>C</color> | <color:black>AckEventCondition(A)</color> | <color:black>running</color> |
+state_18ED9A77 : <#BFDDF0>| <color:black> </color> | <color:black>AckEventCondition(B)</color> | <color:black> </color> |
+state state_21DCC04F
+state_21DCC04F : <#033A5E>| <color:white>name</color> | <color:white>top of queue conditions</color> | <color:white>status</color> |
+state_21DCC04F : <#BFDDF0>| <color:black>B</color> | <color:black>HeartBeatCondition(2)</color> | <color:black>running</color> |
+state_21DCC04F : <#60AAD9>| <color:black>C</color> | <color:black>AckEventCondition(A)</color> | <color:black>scheduled</color> |
+state_21DCC04F : <#60AAD9>| <color:black> </color> | <color:black>AckEventCondition(B)</color> | <color:black> </color> |
+state state_6EE2E4B8
+state_6EE2E4B8 : <#033A5E>| <color:white>name</color> | <color:white>top of queue conditions</color> | <color:white>status</color> |
+state_6EE2E4B8 : <#BFDDF0>| <color:black>A</color> | <color:black>HeartBeatCondition(1)</color> | <color:black>running</color> |
+state_6EE2E4B8 : <#60AAD9>| <color:black>B</color> | <color:black>HeartBeatCondition(2)</color> | <color:black>running</color> |
+state_6EE2E4B8 : <#BFDDF0>| <color:black>C</color> | <color:black>AckEventCondition(A)</color> | <color:black>scheduled</color> |
+state_6EE2E4B8 : <#BFDDF0>| <color:black> </color> | <color:black>AckEventCondition(B)</color> | <color:black> </color> |
+state_0 --> state_FFFFFFFFB4785D8D : ScheduleTask(A,Set(HeartBeatCondition(1)),0)
+state_FFFFFFFFB4785D8D --> state_FFFFFFFFE97DFC35 : ScheduleTask(B,Set(HeartBeatCondition(2)),0)
+state_FFFFFFFFE97DFC35 --> state_21F189CF : ScheduleTask(C,Set(AckEventCondition(A), AckEventCondition(B)),0)
+state_21F189CF --> state_FFFFFFFFA695CDB6 : HeartBeat(1)
+state_FFFFFFFFA695CDB6 --> state_6EE2E4B8 : HeartBeat(2)
+state_6EE2E4B8 --> state_21DCC04F : AckEvent(A)
+state_21DCC04F --> state_18ED9A77 : AckEvent(B)
+state_18ED9A77 --> state_0 : AckEvent(C)
+state_0 --> state_2A9827F5 : ScheduleTask(A,Set(HeartBeatCondition(3)),0)
+state_2A9827F5 --> state_2ED5F1EE : ScheduleTask(A,Set(HeartBeatCondition(4)),0)
+state_2ED5F1EE --> state_0 : ScheduleTask(A,Set(),0)
+note left of state_2ED5F1EE
+Usecase : update a scheduled task.
+endnote
+
+note top of state_FFFFFFFFB4785D8D
+Usecase : create three tasks A, B, C. C is dependent on A **and** B.
+endnote
+center footer `lastHeartBeatReceived` in the state was voluntarily omitted to have cycles
+@enduml

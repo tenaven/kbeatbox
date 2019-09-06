@@ -1,0 +1,48 @@
+@startuml
+/' http://paletton.com/#uid=73v1B0kJoJQ70VQi+NTM5iwVG78 '/
+
+skinparam arrowColor 001624
+skinparam defaultBorderColor 001624
+
+skinparam class {
+	backgroundColor BFDDF0
+	borderColor 001624
+}
+skinparam state {
+	backgroundColor BFDDF0
+	borderColor 001624
+}
+
+skinparam class<<test>> {
+	backgroundColor F0F0F0
+	borderColor 001624
+}
+
+skinparam note {
+	backgroundColor FFE6C7
+	borderColor 001624
+}
+
+skinparam queue {
+	backgroundColor F5C0E4
+	borderColor 001624
+}
+skinparam node {
+	backgroundColor 658B00
+	fontColor white
+	borderColor 001624
+}
+skinparam rectangle {
+	backgroundColor orange
+	borderColor 001624
+}
+skinparam database {
+    fontColor white
+    borderColor white
+    backgroundColor 033A5E
+}
+
+skinparam frame {
+	backgroundColor FFBC68
+}
+@enduml
