@@ -31,17 +31,24 @@ Cut-off and time barriers is the very come usecase in most business environment 
 A lot of IT system are dependant of time related conditions.
 
 
-### Key point : accessing directly the wallclock time of your machine is a no go.
+### Key point : accessing directly the wallclock system time is a no go.
 
-Unless you really know what you are doing, accessing the directly time is a big NO NO.
+Unless you really know what you are doing, accessing directly system time is a big NO NO.
 
-```
-
-
+```java
+// DO NOT DO THAT !!!
+if (System.currentTimeMillis() > MY_PREDEFINED_CUTOFF) {
+}
+// DO NOT DO THAT !!!
 ```
 
 
 ### Why ? Testing, testing, testing
+
+--> Multiple
+
+
+### What to do : Decouple, use logical time
 
 
 
