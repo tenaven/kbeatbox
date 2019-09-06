@@ -3,9 +3,9 @@ title: |
        |  KBEATBOX     \includegraphics[height=3cm]{img/kbeatbox-logo.pdf}
        | A finite-state use case 
 subtitle: "Presentation "
-author: deepPay
-date: 25/01/2018
-#tenaven: yes
+author: tenaven
+date: 06/09/2019
+tenaven: yes
 footertext: "Confidential"
 aspectratio: 169
 io: 169
