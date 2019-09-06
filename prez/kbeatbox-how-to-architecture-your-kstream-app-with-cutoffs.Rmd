@@ -21,7 +21,31 @@ output:
     template: template-prez.tex
 ---
 
+<!--
+References :
+https://www.confluent.io/blog/testing-event-driven-systems
+-->
 # Introduction
+
+Cut-off and time barriers is the very come usecase in most business environment :
+A lot of IT system are dependant of time related conditions.
+
+
+### Key point : accessing directly the wallclock time of your machine is a no go.
+
+Unless you really know what you are doing, accessing the directly time is a big NO NO.
+
+```
+
+
+```
+
+
+### Why ? Testing, testing, testing
+
+
+
+# Backup slides
 
 ### What is a Mealy finite-state machine ?
 
