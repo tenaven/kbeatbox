@@ -1,0 +1,909 @@
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(handout)$handout,$endif$$if(beamer)$ignorenonframetext,$endif$$for(classoption)$$classoption$$sep$,$endfor$$if(aspectratio)$aspectratio=$aspectratio$,$endif$]{$documentclass$}
+
+
+\setbeamersize{text margin left=1cm}
+\setbeamersize{text margin right=1cm}
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbols$if(navigation)$$navigation$$else$empty$endif$
+
+%\DeclareRobustCommand\bseries{\fontseries{b}\selectfont}
+%\DeclareRobustCommand\sbseries{\fontseries{sb}\selectfont}
+\DeclareRobustCommand\ltseries{\fontseries{l}\selectfont}
+%\DeclareRobustCommand\mdseries{\fontseries{l}\selectfont}
+%\DeclareRobustCommand\normalfont{\fontseries{l}\selectfont}
+%\DeclareTextFontCommand{\textbf}{\sbseries}
+%\DeclareTextFontCommand{\textsb}{\sbseries}
+\DeclareTextFontCommand{\textlt}{\ltseries}
+%\DeclareTextFontCommand{\textcl}{\clseries}
+%\DeclareTextFontCommand{\textrm}{\mdseries}
+
+
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+  \usepackage{fontawesome}
+  \usepackage[utf8]{inputenc}
+$if(euro)$
+  \usepackage{eurosym}
+$endif$
+  $if(fontfamily)$
+  \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+  $else$
+  \usepackage[default,scale=1]{opensans}
+  $endif$
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{fontspec}
+    \newfontface\adca{Adca}
+    \newfontface\baekmuk{Baekmuk Headline}
+    \newcommand\ee{\begin{baekmuk}e\end{baekmuk}}
+    \newcommand\tenaven{\adca{\color{tared}t\ee{}n}av\ee{}n}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+$if(euro)$
+  \newcommand{\euro}{€}
+$endif$
+$if(mainfont)$
+    \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+$endif$
+$if(sansfont)$
+    \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
+$endif$
+$if(monofont)$
+    \setmonofont[Mapping=tex-ansi$if(monofontoptions)$,$for(monofontoptions)$$monofontoptions$$sep$,$endfor$$endif$]{$monofont$}
+$endif$
+$if(mathfont)$
+    \setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+$endif$
+$if(CJKmainfont)$
+    \usepackage{xeCJK}
+    \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
+$endif$
+\fi
+$if(theme)$
+\usetheme[$for(themeoptions)$$themeoptions$$sep$,$endfor$]{$theme$}
+$endif$
+$if(colortheme)$
+\usecolortheme{$colortheme$}
+$endif$
+$if(fonttheme)$
+\usefonttheme{$fonttheme$}
+$endif$
+$if(mainfont)$
+\usefonttheme{serif} % use mainfont rather than sansfont for slide text
+$endif$
+$if(innertheme)$
+\useinnertheme{$innertheme$}
+$endif$
+$if(outertheme)$
+\useoutertheme{$outertheme$}
+$endif$
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+$if(lang)$
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$lang$]{babel}
+$if(babel-newcommands)$
+  $babel-newcommands$
+$endif$
+\else
+  \usepackage{polyglossia}
+  \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
+$for(polyglossia-otherlangs)$
+  \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
+$endfor$
+\fi
+$endif$
+\newif\ifbibliography
+$if(natbib)$
+\usepackage{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+$endif$
+$if(listings)$
+\usepackage{listings}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+\VerbatimFootnotes % allows verbatim text in footnotes
+$endif$
+$if(tables)$
+\usepackage{longtable,booktabs}
+\usepackage{colortbl}
+\usepackage{caption}
+\captionsetup{labelformat=empty,labelsep=none}
+$if(hide_tablelines)$
+\arrayrulecolor{white} % Make rules white so we don't see them
+$endif$ 
+% These lines are needed to make table captions work with longtable:
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+$endif$
+
+$if(graphics)$
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight0.8\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+$endif$
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+$if(links-as-notes)$
+% Make links footnotes instead of hotlinks:
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+$endif$
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+$endif$
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+$if(numbersections)$
+\setcounter{secnumdepth}{5}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+$if(dir)$
+\ifxetex
+  % load bidi as late as possible as it modifies e.g. graphicx
+  $if(latex-dir-rtl)$
+  \usepackage[RTLdocument]{bidi}
+  $else$
+  \usepackage{bidi}
+  $endif$
+\fi
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \TeXXeTstate=1
+  \newcommand{\RL}[1]{\beginR #1\endR}
+  \newcommand{\LR}[1]{\beginL #1\endL}
+  \newenvironment{RTL}{\beginR}{\endR}
+  \newenvironment{LTR}{\beginL}{\endL}
+\fi
+$endif$
+$for(header-includes)$
+$header-includes$
+$endfor$
+\usepackage{tikz}
+
+$if(clientlogo)$
+  \newcommand{\logoclient}{\includegraphics[height=3em]{$clientlogo$}}
+$else$
+  \newcommand{\logoclient}{}
+$endif$
+
+$if(partnerlogo)$
+  \newcommand{\logopartner}{\includegraphics[height=3em]{$partnerlogo$}}
+$else$
+  \newcommand{\logopartner}{}
+$endif$
+\newcommand\myclip[3]{
+\begin{scope}
+\clip {#2} ;
+\fill[ #1, even odd rule] #2 #3 ;
+\end{scope}
+}
+
+\ifxetex
+\newcommand\mylogo[3]{
+  \begin{tikzpicture}[remember picture, scale=1.7,every node/.style={scale=1.7}]
+  \begin{scope}[opacity=1, scale=1/4.4]
+  \clip (-3.3,-1.2) rectangle (3.3,1.6);
+  \begin{scope}[shift={(0,0.2)}]
+  \coordinate (a1) at (-1.48 ,-0.2); 
+  \coordinate (b1) at ( 1.00 , -0.2); 
+  \coordinate (c1) at (-0.24 , 1.33); 
+  \coordinate (a2) at (-1.00 ,-0.2); 
+  \coordinate (b2) at ( 1.48 ,-0.2); 
+  \coordinate (c2) at ( 0.24 , 1.33); 
+  \coordinate (d)  at (-0.00 , 1.03);
+  \coordinate (o)  at (-0.00 ,-0.2);
+  \coordinate (e1) at (-0.24 , 0.32); 
+  \coordinate (z1) at ( 0.18 , 1.1);  
+  \coordinate (z2) at ( 1.04 ,-0.2); 
+  \coordinate (z3) at (-0.205, 0.305); 
+  \path (c1) -- (b1) coordinate[pos=0.31] (e2) -- (a2) --(c2) coordinate[pos=0.66] (d1) -- (b2) coordinate[pos=0.5] (m2) ;
+  \path (b1) --  (e1) coordinate[pos=0.5] (n1) -- (e2) coordinate[pos=0.5] (f) -- (b1) coordinate[pos=0.5] (m1);
+  \myclip{#1}{(a1) -- (c1) -- (d) -- (a2) -- cycle }{ (z1) circle (0.25)}; 
+  \myclip{#2}{(d) -- (d1) -- (f) -- (e2) -- cycle}{(z1) circle (0.25)};
+  \myclip{#3}{(m1) -- (d) -- (c2) -- (m2) -- cycle }{(z1) circle (0.25)};
+  \fill[#1] (z1) circle (0.1); 
+  \draw[#2, line width=0pt]  (d1) -- (f); 
+  \myclip{#2}{(d1) -- (f) -- (e1)  -- (n1) -- (o) -- (a2) --cycle }{ (z3) circle (0.24)}; 
+  \myclip{#1}{ (n1) -- (e1) -- (e2) -- (m1) -- cycle}{ (z3) circle (0.24)}; 
+  \fill[#1] (z3) circle (0.1); 
+  \draw[#1, line width=0pt]  (m1) -- (n1); 
+  \draw[#2, line width=0pt]  (o) -- (n1); 
+  \draw[#2, line width=0pt]  (d1) -- (f); 
+  \myclip{#1}{(n1) -- (m1) -- (b1) --cycle }{ (z2) circle (0.24)}; 
+  \myclip{#2}{(n1) -- (o) -- (b1) --cycle }{ (z2) circle (0.24)}; 
+  \myclip{#3}{(m1) -- (b1) -- (b2) -- (m2) -- cycle }{ (z2) circle (0.24)}; 
+  \fill[#1] (z2) circle (0.1); 
+  \draw[#3, line width=0pt]  (m1) -- (m2); 
+  \end{scope}
+  \node at(0,-0.61) {\tenaven}; 
+  \end{scope}
+  \end{tikzpicture}
+}
+\else
+\newcommand\mylogo[3]{
+  \includegraphics[height=3em]{logo-tenaven.pdf}
+  }
+\fi
+
+
+$if(tenaven)$
+  \newcommand{\ourlogo}{
+    \mylogo{tared}{tapink}{taredwhite}
+  }
+$else$
+  \newcommand{\ourlogo}{\deeppaytext{0.75}}
+$endif$
+
+
+$if(version)$
+  \newcommand{\version}{\input{$version$}}
+$else$
+  \newcommand{\version}{}
+$endif$
+
+$if(footertext)$
+  \newcommand{\footertext}{$footertext$ --- \version{}}
+$else$
+  \newcommand{\footertext}{}
+$endif$
+
+$if(shorttitle)$
+\title[$shorttitle$]{$title$}
+$else$
+$if(title)$
+\title{$title$}
+$endif$
+
+$endif$
+$if(subtitle)$
+\subtitle{$subtitle$}
+$endif$
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+$if(institute)$
+\institute{$for(institute)$$institute$$sep$ \and $endfor$}
+$endif$
+$if(date)$
+\date{- $date$}
+$else$
+\date{}
+$endif$
+
+\usepackage{soul}
+
+
+\usepackage[export]{adjustbox}
+\usepackage{pgfgantt}
+\usetikzlibrary{backgrounds}
+
+
+
+\definecolor{bluegray}{RGB}{  20, 66, 87}
+
+\definecolor{dpblue0}{RGB}{  7,127,206}
+\definecolor{dpblue1}{RGB}{115,180,222}
+\definecolor{dpblue2}{RGB}{ 49,146,209}
+\definecolor{dpblue3}{RGB}{  4, 81,132}
+\definecolor{dpblue4}{RGB}{  2, 50, 80}
+
+\definecolor{dpgreen0}{RGB}{179,247,  0}
+\definecolor{dpgreen1}{RGB}{214,250,121}
+\definecolor{dpgreen2}{RGB}{192,248, 46}
+\definecolor{dpgreen3}{RGB}{141,194,  0}
+\definecolor{dpgreen4}{RGB}{ 86,119,  0}
+
+\definecolor{dporange0}{RGB}{255,142,  0}
+\definecolor{dporange1}{RGB}{255,197,124}
+\definecolor{dporange2}{RGB}{255,163, 48}
+\definecolor{dporange3}{RGB}{206,115,  0}
+\definecolor{dporange4}{RGB}{126, 70,  0}
+
+\definecolor{dppurple0}{RGB}{223,  0,150}
+\definecolor{dppurple1}{RGB}{233,113,194}
+\definecolor{dppurple2}{RGB}{225, 42,165}
+\definecolor{dppurple3}{RGB}{157,  0,106}
+\definecolor{dppurple4}{RGB}{ 96,  0, 65}
+
+\definecolor{dpblue}{RGB}{19,96,153}
+\definecolor{dppurple}{RGB}{165,11,141}
+\definecolor{dpgreen}{RGB}{135,183,34}
+\definecolor{dporange}{RGB}{189,107,25}
+\definecolor{lineblue}{RGB}{20,127,203}
+
+
+\definecolor{tared0}{RGB}{ 251,120,130}
+\definecolor{tared1}{RGB}{ 249, 80, 92}
+\definecolor{tared2}{RGB}{ 238, 39, 54}
+\definecolor{tared3}{RGB}{ 201,  9, 23}
+\definecolor{tared4}{RGB}{ 158,  0, 12}
+
+\definecolor{taora0}{RGB}{ 255,179,122}
+\definecolor{taora1}{RGB}{ 255,155, 82}
+\definecolor{taora2}{RGB}{ 244,127, 40}
+\definecolor{taora3}{RGB}{ 206, 93,  9}
+\definecolor{taora4}{RGB}{ 163, 69,  0}
+
+\definecolor{tablu0}{RGB}{  91,190,180}
+\definecolor{tablu1}{RGB}{  52,163,151}
+\definecolor{tablu2}{RGB}{  25,152,138}
+\definecolor{tablu3}{RGB}{   6,128,115}
+\definecolor{tablu4}{RGB}{   0,101, 90}
+
+\definecolor{tagre0}{RGB}{ 124,225,108}
+\definecolor{tagre1}{RGB}{  88,213, 68}
+\definecolor{tagre2}{RGB}{  56,202, 33}
+\definecolor{tagre3}{RGB}{  30,170,  8}
+\definecolor{tagre4}{RGB}{  18,135,  0}
+
+
+\definecolor{tared}{RGB}{238, 39, 55}
+\definecolor{tapink}{RGB}{250, 228, 239}
+\definecolor{tablack}{RGB}{33,35,34}
+\definecolor{taredwhite}{RGB}{250,200,204}
+
+\newcommand\deeppaytext[1]{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-#1, xscale=#1, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(-18.60322,-997.2605)}]% layer1
+  \begin{scope}% g2997
+    \begin{scope}[fill=black]% text2999
+      % path3813
+      \path[fill=dpblue2] (75.7982,1029.7800) -- (75.6224,1029.7800) .. controls
+        (74.1250,1031.9545) and (71.8854,1033.0417) .. (68.9036,1033.0417) .. controls
+        (66.1041,1033.0417) and (63.9232,1032.0847) .. (62.3607,1030.1707) .. controls
+        (60.8112,1028.2566) and (60.0364,1025.5352) .. (60.0364,1022.0066) .. controls
+        (60.0364,1018.4780) and (60.8177,1015.7371) .. (62.3802,1013.7839) .. controls
+        (63.9427,1011.8308) and (66.1172,1010.8543) .. (68.9036,1010.8542) .. controls
+        (71.8073,1010.8543) and (74.0338,1011.9090) .. (75.5833,1014.0183) --
+        (75.8372,1014.0183) -- (75.7005,1012.4753) -- (75.6224,1010.9714) --
+        (75.6224,1002.2605) -- (78.8646,1002.2605) -- (78.8646,1032.6511) --
+        (76.2278,1032.6511) -- (75.7982,1029.7800)(69.3138,1030.3269) .. controls
+        (71.5273,1030.3269) and (73.1289,1029.7279) .. (74.1185,1028.5300) .. controls
+        (75.1211,1027.3191) and (75.6224,1025.3725) .. (75.6224,1022.6902) --
+        (75.6224,1022.0066) .. controls (75.6224,1018.9728) and (75.1145,1016.8113) ..
+        (74.0989,1015.5222) .. controls (73.0963,1014.2202) and (71.4882,1013.5691) ..
+        (69.2747,1013.5691) .. controls (67.3737,1013.5691) and (65.9153,1014.3113) ..
+        (64.8997,1015.7957) .. controls (63.8971,1017.2670) and (63.3958,1019.3504) ..
+        (63.3958,1022.0457) .. controls (63.3958,1024.7800) and (63.8971,1026.8438) ..
+        (64.8997,1028.2371) .. controls (65.9023,1029.6303) and (67.3737,1030.3269) ..
+        (69.3138,1030.3269);
+
+      % path3815
+      \path[fill=dpblue2] (92.8021,1033.0417) .. controls (89.6380,1033.0417) and
+        (87.1380,1032.0782) .. (85.3021,1030.1511) .. controls (83.4791,1028.2240) and
+        (82.5677,1025.5483) .. (82.5677,1022.1238) .. controls (82.5677,1018.6733) and
+        (83.4140,1015.9324) .. (85.1068,1013.9011) .. controls (86.8125,1011.8699) and
+        (89.0976,1010.8543) .. (91.9622,1010.8542) .. controls (94.6445,1010.8543) and
+        (96.7669,1011.7397) .. (98.3294,1013.5105) .. controls (99.8919,1015.2683) and
+        (100.6731,1017.5925) .. (100.6732,1020.4832) -- (100.6732,1022.5339) --
+        (85.9271,1022.5339) .. controls (85.9922,1025.0470) and (86.6237,1026.9545) ..
+        (87.8216,1028.2566) .. controls (89.0325,1029.5587) and (90.7317,1030.2097) ..
+        (92.9193,1030.2097) .. controls (95.2239,1030.2097) and (97.5026,1029.7279) ..
+        (99.7552,1028.7644) -- (99.7552,1031.6550) .. controls (98.6093,1032.1498) and
+        (97.5221,1032.5014) .. (96.4935,1032.7097) .. controls (95.4778,1032.9311) and
+        (94.2474,1033.0417) .. (92.8021,1033.0417)(91.9232,1013.5691) .. controls
+        (90.2044,1013.5691) and (88.8307,1014.1290) .. (87.8021,1015.2488) .. controls
+        (86.7864,1016.3686) and (86.1875,1017.9181) .. (86.0052,1019.8972) --
+        (97.1966,1019.8972) .. controls (97.1966,1017.8530) and (96.7408,1016.2905) ..
+        (95.8294,1015.2097) .. controls (94.9179,1014.1160) and (93.6159,1013.5691) ..
+        (91.9232,1013.5691);
+
+      % path3817
+      \path[fill=dpblue2] (113.2239,1033.0417) .. controls (110.0599,1033.0417) and
+        (107.5599,1032.0782) .. (105.7239,1030.1511) .. controls (103.9010,1028.2240)
+        and (102.9896,1025.5483) .. (102.9896,1022.1238) .. controls
+        (102.9896,1018.6733) and (103.8359,1015.9324) .. (105.5286,1013.9011) ..
+        controls (107.2343,1011.8699) and (109.5195,1010.8543) .. (112.3841,1010.8542)
+        .. controls (115.0664,1010.8543) and (117.1888,1011.7397) ..
+        (118.7513,1013.5105) .. controls (120.3138,1015.2683) and (121.0950,1017.5925)
+        .. (121.0950,1020.4832) -- (121.0950,1022.5339) -- (106.3489,1022.5339) ..
+        controls (106.4140,1025.0470) and (107.0455,1026.9545) .. (108.2435,1028.2566)
+        .. controls (109.4544,1029.5587) and (111.1536,1030.2097) ..
+        (113.3411,1030.2097) .. controls (115.6458,1030.2097) and (117.9244,1029.7279)
+        .. (120.1771,1028.7644) -- (120.1771,1031.6550) .. controls
+        (119.0312,1032.1498) and (117.9440,1032.5014) .. (116.9153,1032.7097) ..
+        controls (115.8997,1032.9311) and (114.6692,1033.0417) ..
+        (113.2239,1033.0417)(112.3450,1013.5691) .. controls (110.6263,1013.5691) and
+        (109.2526,1014.1290) .. (108.2239,1015.2488) .. controls (107.2083,1016.3686)
+        and (106.6093,1017.9181) .. (106.4271,1019.8972) -- (117.6185,1019.8972) ..
+        controls (117.6184,1017.8530) and (117.1627,1016.2905) .. (116.2513,1015.2097)
+        .. controls (115.3398,1014.1160) and (114.0377,1013.5691) ..
+        (112.3450,1013.5691);
+
+      % path3819
+      \path[fill=dpblue2] (134.5638,1033.0417) .. controls (133.1705,1033.0417) and
+        (131.8945,1032.7878) .. (130.7357,1032.2800) .. controls (129.5898,1031.7592)
+        and (128.6263,1030.9649) .. (127.8450,1029.8972) -- (127.6107,1029.8972) ..
+        controls (127.7669,1031.1472) and (127.8450,1032.3321) .. (127.8450,1033.4519)
+        -- (127.8450,1042.2605) -- (124.6028,1042.2605) -- (124.6028,1011.2449) --
+        (127.2396,1011.2449) -- (127.6888,1014.1746) -- (127.8450,1014.1746) ..
+        controls (128.6784,1013.0027) and (129.6484,1012.1564) .. (130.7552,1011.6355)
+        .. controls (131.8620,1011.1147) and (133.1315,1010.8543) ..
+        (134.5638,1010.8542) .. controls (137.4023,1010.8543) and (139.5898,1011.8243)
+        .. (141.1263,1013.7644) .. controls (142.6757,1015.7045) and
+        (143.4505,1018.4259) .. (143.4505,1021.9285) .. controls (143.4505,1025.4441)
+        and (142.6627,1028.1785) .. (141.0872,1030.1316) .. controls
+        (139.5247,1032.0717) and (137.3502,1033.0417) ..
+        (134.5638,1033.0417)(134.0950,1013.6082) .. controls (131.9075,1013.6082) and
+        (130.3255,1014.2136) .. (129.3489,1015.4246) .. controls (128.3724,1016.6355)
+        and (127.8711,1018.5626) .. (127.8450,1021.2058) -- (127.8450,1021.9285) ..
+        controls (127.8450,1024.9363) and (128.3463,1027.0912) .. (129.3489,1028.3933)
+        .. controls (130.3515,1029.6824) and (131.9596,1030.3269) ..
+        (134.1732,1030.3269) .. controls (136.0221,1030.3269) and (137.4674,1029.5782)
+        .. (138.5091,1028.0808) .. controls (139.5638,1026.5834) and
+        (140.0911,1024.5196) .. (140.0911,1021.8894) .. controls (140.0911,1019.2201)
+        and (139.5638,1017.1759) .. (138.5091,1015.7566) .. controls
+        (137.4674,1014.3243) and (135.9961,1013.6082) .. (134.0950,1013.6082);
+
+      % path3821
+      \path[fill=dpblue4] (171.7278,1012.4167) .. controls (171.7278,1015.3074) and
+        (170.7382,1017.5340) .. (168.7591,1019.0964) .. controls (166.7929,1020.6459)
+        and (163.9739,1021.4207) .. (160.3021,1021.4207) -- (156.9427,1021.4207) --
+        (156.9427,1032.6511) -- (153.6224,1032.6511) -- (153.6224,1004.0964) --
+        (161.0247,1004.0964) .. controls (168.1601,1004.0965) and (171.7278,1006.8699)
+        .. (171.7278,1012.4167)(156.9427,1018.5691) -- (159.9310,1018.5691) ..
+        controls (162.8737,1018.5691) and (165.0026,1018.0938) .. (166.3177,1017.1433)
+        .. controls (167.6328,1016.1928) and (168.2903,1014.6694) ..
+        (168.2903,1012.5730) .. controls (168.2903,1010.6850) and (167.6718,1009.2788)
+        .. (166.4349,1008.3542) .. controls (165.1979,1007.4298) and
+        (163.2708,1006.9676) .. (160.6536,1006.9675) -- (156.9427,1006.9675) --
+        (156.9427,1018.5691);
+
+      % path3823
+      \path[fill=dpblue4] (188.3607,1032.6511) -- (187.7161,1029.6042) --
+        (187.5599,1029.6042) .. controls (186.4921,1030.9454) and (185.4244,1031.8569)
+        .. (184.3568,1032.3386) .. controls (183.3021,1032.8074) and
+        (181.9804,1033.0417) .. (180.3919,1033.0417) .. controls (178.2695,1033.0417)
+        and (176.6028,1032.4949) .. (175.3919,1031.4011) .. controls
+        (174.1940,1030.3074) and (173.5950,1028.7514) .. (173.5950,1026.7332) ..
+        controls (173.5950,1022.4102) and (177.0521,1020.1446) .. (183.9661,1019.9363)
+        -- (187.5989,1019.8191) -- (187.5989,1018.4910) .. controls
+        (187.5989,1016.8113) and (187.2343,1015.5743) .. (186.5052,1014.7800) ..
+        controls (185.7890,1013.9728) and (184.6367,1013.5691) .. (183.0482,1013.5691)
+        .. controls (181.2643,1013.5691) and (179.2461,1014.1160) ..
+        (176.9935,1015.2097) -- (175.9974,1012.7292) .. controls (177.0521,1012.1564)
+        and (178.2044,1011.7071) .. (179.4544,1011.3816) .. controls
+        (180.7174,1011.0561) and (181.9804,1010.8933) .. (183.2435,1010.8933) ..
+        controls (185.7955,1010.8933) and (187.6836,1011.4597) .. (188.9075,1012.5925)
+        .. controls (190.1445,1013.7254) and (190.7630,1015.5418) ..
+        (190.7630,1018.0417) -- (190.7630,1032.6511) --
+        (188.3607,1032.6511)(181.0364,1030.3660) .. controls (183.0547,1030.3660) and
+        (184.6367,1029.8126) .. (185.7825,1028.7058) .. controls (186.9414,1027.5990)
+        and (187.5208,1026.0496) .. (187.5208,1024.0574) -- (187.5208,1022.1238) --
+        (184.2786,1022.2605) .. controls (181.7005,1022.3515) and (179.8385,1022.7553)
+        .. (178.6927,1023.4714) .. controls (177.5599,1024.1746) and
+        (176.9935,1025.2748) .. (176.9935,1026.7722) .. controls (176.9935,1027.9441)
+        and (177.3450,1028.8360) .. (178.0482,1029.4480) .. controls
+        (178.7643,1030.0600) and (179.7604,1030.3660) .. (181.0364,1030.3660);
+    \end{scope}
+    % path4408
+    \path[shift={(-1.72848,993.06519)},fill=dpblue4] (45.2188,12.8750) .. controls
+      (42.6246,12.9670) and (39.2091,24.3919) .. (36.8750,25.4062) .. controls
+      (35.1348,26.1623) and (27.1009,19.5216) .. (25.5938,20.2500) .. controls
+      (25.4931,20.2980) and (25.4136,20.3814) .. (25.3750,20.5000) .. controls
+      (24.5957,22.8813) and (34.5884,30.2837) .. (34.8125,32.8125) .. controls
+      (34.9907,34.8236) and (24.4107,41.1590) .. (26.1250,42.3125) .. controls
+      (28.2807,43.7631) and (38.1979,36.6071) .. (40.6250,37.4375) .. controls
+      (42.2382,38.7539) and (43.0977,41.3299) .. (43.5312,42.5625) .. controls
+      (44.4427,44.9713) and (45.4948,46.6848) .. (46.7188,47.6875) .. controls
+      (47.9070,48.6841) and (48.4733,48.9944) .. (51.0625,49.1875) .. controls
+      (64.7385,49.2207) and (158.2476,49.2070) .. (199.0938,49.2188) .. controls
+      (200.8179,49.0369) and (202.4652,48.5220) .. (203.4688,47.6875) .. controls
+      (204.6927,46.6848) and (205.7448,44.9713) .. (206.6562,42.5625) --
+      (215.8750,18.1875) -- (212.4062,18.1875) .. controls (209.4115,26.4687) and
+      (207.6406,31.4167) .. (207.0938,33.0312) .. controls (206.5599,34.6328) and
+      (206.2005,35.7734) .. (206.0312,36.4375) -- (205.8750,36.4375) .. controls
+      (205.6276,35.2005) and (204.9974,33.1615) .. (203.9688,30.3750) --
+      (199.2812,18.1875) -- (195.7812,18.1875) -- (204.4375,39.6875) --
+      (203.2188,42.7500) .. controls (202.3594,45.0101) and (200.9960,46.2519) ..
+      (199.0938,46.4688) .. controls (199.0938,46.4688) and (52.5006,46.6969) ..
+      (51.3125,46.4688) .. controls (50.1244,46.2406) and (47.4147,45.2797) ..
+      (46.9375,42.7500) .. controls (46.4603,40.2203) and (45.2718,34.5885) ..
+      (46.1875,33.0312) .. controls (47.2265,31.2642) and (58.4212,32.7270) ..
+      (57.9062,30.7188) .. controls (57.2587,28.1932) and (46.2156,26.7451) ..
+      (44.6875,24.6875) .. controls (43.4723,23.0512) and (47.2818,12.8017) ..
+      (45.2188,12.8750) -- cycle(40.6875,26.6875) .. controls (41.9087,26.7895) and
+      (42.9406,28.3468) .. (42.3750,30.9688) .. controls (40.5842,35.2186) and
+      (37.4396,31.5071) .. (38.4688,28.3438) .. controls (38.7459,27.7686) and
+      (39.0690,27.3671) .. (39.4375,27.0938) .. controls (39.8367,26.7976) and
+      (40.2804,26.6535) .. (40.6875,26.6875) -- cycle;
+  \end{scope}
+\end{scope}
+\end{tikzpicture}
+}
+
+
+\newcommand\talogo[3]{
+\begin{tikzpicture}[scale=0.25]
+\clip (-2,-1.5) rectangle (2,2.5);
+\begin{scope}[shift={(0,0)}]
+\draw[fill=#1,draw=#1] (-1.48,-0.2) coordinate (a1) -- (-0.24,1.33) coordinate (b1) --  (-0,1.03) coordinate (d1) -- (-1,-0.2)  coordinate (a2) --cycle;
+\draw[fill=#2, draw=#2] (a2) -- (0.24,1.33)  coordinate (b2) -- (1.48,-0.2)  coordinate (c2) -- cycle;
+\draw[fill=#1, draw=#1] (-0.24,0.32)  coordinate (a3) -- (0.17,0.84)  coordinate (b3) -- (1.005,-0.2)  coordinate (c3)-- cycle;
+\fill[fill=#3, draw=#3] (d1) -- (b2) -- (c2)  -- (c3) -- cycle;
+\draw[fill=white, draw=white]  (-0.205  ,0.305) coordinate (z1) circle(0.24);
+\draw[fill=#1, draw=#1]  (z1) circle(0.1);
+\draw[fill=white, draw=white]  (1.04,-0.2) coordinate (z2) circle(0.24);
+\draw[fill=#1, draw=#1]  (z2) circle(0.1);
+\draw[fill=white, draw=white]  (0.18,1.1) coordinate (z3) circle(0.24);
+\draw[fill=#1, draw=#1]  (z3) circle(0.1);
+\end{scope}
+\end{tikzpicture}
+}
+
+
+\setul{0.32ex}{0.125ex}
+\newcommand{\deeppay}{{\textcolor{dpblue4}{\ul{{deep}~\!Pa}y}}}
+
+\newcommand{\logoinv}[3]{
+$if(tenaven)$
+\talogo{tared2}{tared1}{tared1!70!tablu1}
+$else$
+\begin{tikzpicture}[y=1pt, x=1pt, yscale=-#1, xscale=#1, inner sep=0pt, outer sep=0pt]
+\shade[top color=#2,bottom color=#2,shading angle=45] (-18,-18) rectangle +(82,82);
+    \path[fill=white] (23.6875,1.3906) -- (33.1445,24.3965)
+      -- (32.4551,26.1504) .. controls (31.7453,28.0153) and (31.0982,29.1982) ..
+      (30.5137,29.6992) .. controls (29.9597,30.1741) and (29.1861,30.4166) ..
+      (28.2070,30.4414) -- (24.8887,30.4414) .. controls (21.8061,30.4414) and
+      (17.6433,29.7244) .. (16.6523,28.7832) .. controls (15.4543,27.6455) and
+      (17.0613,18.9338) .. (15.4238,19.2793) .. controls (13.3648,19.7136) and
+      (12.2328,29.3223) .. (10.5098,30.4570) .. controls (9.2251,31.3028) and
+      (1.8915,27.1230) .. (0.7891,27.9141) .. controls (0.7154,27.9671) and
+      (0.6706,28.0405) .. (0.6562,28.1406) .. controls (0.3650,30.1506) and
+      (9.3561,34.6561) .. (9.8867,36.6445) .. controls (10.3087,38.2258) and
+      (2.7595,44.7527) .. (4.2891,45.4355) .. controls (6.2124,46.2943) and
+      (13.1278,39.2192) .. (15.1816,39.5449) .. controls (16.8150,39.8040) and
+      (20.3752,48.4803) .. (21.4199,47.1875) .. controls (22.7336,45.5618) and
+      (18.2714,37.1925) .. (19.0059,35.2363) .. controls (19.2666,34.5417) and
+      (21.1934,33.6484) .. (23.2754,33.6484) -- (25.7949,33.6484) --
+      (25.7949,33.6660) -- (28.8633,33.6660) .. controls (30.5890,33.6660) and
+      (31.9682,33.2415) .. (32.9980,32.3926) .. controls (34.0279,31.5436) and
+      (35.0844,29.7268) .. (36.1699,26.9434) -- (46.4414,1.3906) -- (42.3711,1.3906)
+      -- (35.0645,19.6777) -- (27.7578,1.3906) -- cycle(13.7383,30.9551) .. controls
+      (14.7278,30.8668) and (15.7590,31.9465) .. (15.6719,34.1191) .. controls
+      (14.8326,37.7622) and (11.8114,35.2555) .. (12.1934,32.5859) .. controls
+      (12.3347,32.0880) and (12.5503,31.7051) .. (12.8066,31.4355) .. controls
+      (13.0843,31.1435) and (13.4084,30.9845) .. (13.7383,30.9551) -- cycle;
+\end{tikzpicture}
+$endif$
+}
+
+
+% Add frame number to footline
+$if(tenaven)$
+\setbeamercolor{bluefg}{fg=tablack!70!white}
+$else$
+\setbeamercolor{bluefg}{fg=dpblue4}
+$endif$
+\setbeamertemplate{footline}
+{
+
+ \begin{beamercolorbox}[ht=2.25ex,dp=1ex,left]{bluefg}%
+    \ifnum\insertframenumber>1
+    \hspace{4ex} \insertframenumber\hspace{4ex}  {\footertext} 
+    \fi
+  \end{beamercolorbox}
+}        
+
+\definecolor{tagray}{RGB}{181,181,181}
+
+$if(tenaven)$
+\setbeamercolor{title}{fg=tablack}
+\setbeamercolor{title in head/foot}{fg=tablack}
+\setbeamercolor{structure}{fg=tablack}
+\setbeamercolor{institute}{fg=tagray}
+\setbeamercolor{primary}{fg=tablack!80!tared2}
+\setbeamercolor{normal text}{fg=tablack!60!white}
+$else$
+\setbeamercolor{title}{fg=bluegray}
+\setbeamercolor{title in head/foot}{fg=bluegray}
+\setbeamercolor{structure}{fg=dpblue4}
+\setbeamercolor{primary}{fg=dpblue2}
+\setbeamercolor{normal text}{fg=dpblue3}
+$endif$
+
+\newcommand{\currentcol}[1]
+{
+\ifnum#1<2
+  dpblue0  
+\else
+  \ifnum#1=2
+    dppurple0
+  \else
+    \ifnum#1=3
+      dpgreen0
+    \else
+      dporange0
+    \fi
+  \fi
+\fi
+}
+
+$if(tenaven)$
+\newcommand{\currentcolor}[1]
+{
+\ifnum#1<2
+  \color{tared4}  
+\else
+  \ifnum#1=2
+    \color{tablu4}
+  \else
+    \ifnum#1=3
+      \color{taora4}
+    \else
+      \ifnum#1=4
+        \color{tagre4}
+      \else
+        \color{tared4}
+      \fi
+    \fi
+  \fi
+\fi
+}
+$else$
+\newcommand{\currentcolor}[1]
+{
+\ifnum#1<2
+  \color{dpblue4}  
+\else
+  \ifnum#1=2
+    \color{dppurple4}
+  \else
+    \ifnum#1=3
+      \color{dpgreen4}
+    \else
+      \ifnum#1=4
+        \color{dporange4}
+      \else
+        \color{dpblue4}
+      \fi
+    \fi
+  \fi
+\fi
+}
+$endif$
+
+$if(tenaven)$
+\newcommand{\currentlogo}[1]
+{
+\ifnum#1<2
+  \talogo{tared2}{tared0!40!white}{tared0!70!tagre0} 
+\else
+  \ifnum#1=2
+    \talogo{tablu2}{tablu0!40!white}{tablu0!70!tared0}  
+  \else
+    \ifnum#1=3
+      \talogo{taora2}{taora0!40!white}{taora0!70!tablu0}   
+    \else 
+      \ifnum#1=4
+        \talogo{tagre2}{tagre0!40!white}{tagre0!70!taora0}
+      \else 
+        \talogo{tared2}{tared0!40!white}{tared0!70!tagre0}
+      \fi
+    \fi
+  \fi
+\fi
+}
+$else$
+\newcommand{\currentlogo}[1]
+{
+\ifnum#1<2
+  \logoinv{0.35}{dpblue4}{dpblue2} 
+\else
+  \ifnum#1=2
+    \logoinv{0.35}{dppurple4}{dppurple1}  
+  \else
+    \ifnum#1=3
+      \logoinv{0.35}{dpgreen4}{dpgreen1}   
+    \else 
+      \ifnum#1=4
+        \logoinv{0.35}{dporange4}{dporange1}
+      \else 
+        \logoinv{0.35}{dpblue4}{dpblue2}
+      \fi
+    \fi
+  \fi
+\fi
+}
+$endif$
+
+$if(section-titles)$
+\AtBeginPart{}
+\AtBeginSection{
+ \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \Huge \insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+$else$
+\AtBeginPart{}
+\AtBeginSection{}
+\AtBeginSubsection{}
+$endif$
+
+\newcommand\deeppaystar[1]{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-#1, xscale=#1, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(0,-1004.3622)}]% layer1
+  \path[fill=dpblue3] (4.1181,1021.2217) .. controls (4.0033,1021.3037) and
+    (3.9333,1021.4199) .. (3.9109,1021.5759) .. controls (3.4567,1024.7106) and
+    (17.4782,1031.7374) .. (18.3057,1034.8384) .. controls (18.9637,1037.3045) and
+    (7.1892,1047.4814) .. (9.5745,1048.5463) .. controls (12.5740,1049.8854) and
+    (23.3578,1038.8525) .. (26.5607,1039.3604) .. controls (29.1078,1039.7644) and
+    (34.6610,1053.2947) .. (36.2903,1051.2786) .. controls (38.3390,1048.7433) and
+    (31.3798,1035.6909) .. (32.5251,1032.6402) .. controls (33.4360,1030.2141) and
+    (47.6959,1029.6196) .. (46.6191,1027.2301) .. controls (45.2650,1024.2253) and
+    (31.2031,1024.8091) .. (28.8536,1022.5778) .. controls (26.9853,1020.8034) and
+    (29.4932,1007.2180) .. (26.9397,1007.7567) .. controls (23.7287,1008.4340) and
+    (21.9640,1023.4188) .. (19.2769,1025.1884) .. controls (17.2734,1026.5073) and
+    (5.8374,1019.9878) .. (4.1181,1021.2217) -- cycle(22.8572,1026.7148) ..
+    controls (24.5892,1024.8931) and (27.5080,1026.3828) .. (27.3270,1030.9003) ..
+    controls (26.0182,1036.5817) and (21.3057,1032.6722) .. (21.9014,1028.5091) ..
+    controls (22.1219,1027.7325) and (22.4575,1027.1352) .. (22.8572,1026.7148) --
+    cycle;
+\end{scope}
+\end{tikzpicture}
+}
+
+
+% Change item for 
+$if(tenaven)$
+\setbeamertemplate{itemize items}[circle]
+\setbeamercolor{itemize item}{bg=tared4, fg=tared4}
+\setbeamercolor{itemize subitem}{bg=tared4, fg=tared4}
+$else$
+\setbeamertemplate{itemize items}{
+\deeppaystar{0.2}
+}
+\usesubitemizeitemtemplate{%
+    {\tiny\raise1pt\hbox{
+    \deeppaystar{0.15}
+    }}
+}
+\usesubsubitemizeitemtemplate{%
+    {\tiny\raise1pt\hbox{
+    \deeppaystar{0.15}
+    }}%
+}
+$endif$
+
+% Template for title page
+\setbeamertemplate{title page}
+{
+  	\vskip3em
+  		{\ourlogo{} \hfill{} 
+  		\logopartner \hfill \logoclient}
+    	\vskip0pt plus 2filll
+    		%\begin{centering}
+		\ltseries
+      		\hspace{1.5cm}{\usebeamerfont{title}\usebeamercolor[fg]{institute}{\insertsubtitle}  \insertdate } \vskip1ex
+      		{\usebeamerfont{title}\usebeamercolor[fg]{title}\huge{\inserttitle}}\newline  
+    		%\end{centering}	
+	\vskip0pt plus 1filll
+}
+
+\setbeamertemplate{frametitle}
+{
+\ifxetex    
+$if(tenaven)$
+    \nointerlineskip
+    \begin{beamercolorbox}[sep=0.3cm,ht=2em,wd=\paperwidth]{frametitle}
+        \vbox{}\vskip-2ex%
+        \hskip-5.6mm\raisebox{-3mm}{\currentlogo{\insertsectionnumber}}
+        \strut\insertframetitle\strut
+        \vskip-1.1ex%
+    \end{beamercolorbox}
+    {\currentcolor{\insertsectionnumber}\hrule}
+$else$
+    \nointerlineskip
+    \begin{beamercolorbox}[sep=0.3cm,ht=2em,wd=\paperwidth]{frametitle}
+        \vbox{}\vskip-2ex%
+        \hskip-6.25mm\raisebox{-3mm}{\currentlogo{\insertsectionnumber}}
+        \strut\insertframetitle\strut
+        \vskip-1.35ex%
+    \end{beamercolorbox}
+    {\currentcolor{\insertsectionnumber}\hrule}
+$endif$
+\else
+    \nointerlineskip
+    \begin{beamercolorbox}[sep=0.3cm,ht=2em,wd=\paperwidth]{frametitle}
+        \vbox{}\vskip-2ex%
+        \hskip-5.6mm\raisebox{-3mm}{\currentlogo{\insertsectionnumber}}
+        \strut\insertframetitle\strut
+        \vskip-1.1ex%
+    \end{beamercolorbox}
+    {\currentcolor{\insertsectionnumber}\hrule}
+\fi
+} 
+
+%-----------------------------------------------
+
+\begin{document}
+
+$if(title)$
+\frame{\titlepage}
+$endif$
+
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+$if(toc)$
+\begin{frame}
+\frametitle{\contentsname}
+\tableofcontents
+\end{frame}
+
+$endif$
+$body$
+
+$if(natbib)$
+$if(bibliography)$
+$if(biblio-title)$
+$if(book-class)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+\begin{frame}[allowframebreaks]{$biblio-title$}
+\bibliographytrue
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+\end{frame}
+
+$endif$
+$endif$
+$if(biblatex)$
+\begin{frame}[allowframebreaks]{$biblio-title$}
+\bibliographytrue
+\printbibliography[heading=none]
+\end{frame}
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}
+
