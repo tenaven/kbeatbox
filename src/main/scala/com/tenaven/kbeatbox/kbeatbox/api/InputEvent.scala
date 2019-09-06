@@ -1,20 +1,23 @@
 /*
- *      _                 ____               ____    _    ____
- *   __| | ___  ___ _ __ |  _ \ __ _ _   _  / ___|  / \  / ___|
- *  / _` |/ _ \/ _ \ '_ \| |_) / _` | | | | \___ \ / _ \ \___ \
- * | (_| |  __/  __/ |_) |  __/ (_| | |_| |  ___) / ___ \ ___) |
- *  \__,_|\___|\___| .__/|_|   \__,_|\__, | |____/_/   \_\____/
- *                 |_|               |___/
+ *  _
+ * / |_ ___ _ __   __ ___   _____ _ __
+ * | __/ _ \ '_ \ / _` \ \ / / _ \ '_ \
+ * | ||  __/ | | | (_| |\ V /  __/ | | |
+ * |_| \___|_| |_|\__,_| \_/ \___|_| |_|
  *
- * (c) 2018 deepPay SAS
- * All rights reserved
+ *        Copyright 2019 TENAVEN
  *
- * This software is made available to third parties by deepPay free of charge and subject to the following license and conditions :
- * (i) it is provided independently of any existing contract(s) or relationships;
- * (ii) it is provided as-is and for educational purposes only;
- * (iii) it is provided without any warranty or support;
- * (iv) deepPay accepts no liability in relation to the use of this software whatsoever; and
- * (v) this license shall continue until terminated, in deepPay sole discretion, on notice to the user
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.tenaven.kbeatbox.kbeatbox.api
 
