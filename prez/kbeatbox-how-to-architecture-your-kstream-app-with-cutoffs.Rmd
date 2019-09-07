@@ -38,6 +38,7 @@ Unless you really know what you are doing, accessing directly system time is a b
 ```java
 // DO NOT DO THAT !!!
 if (System.currentTimeMillis() > MY_PREDEFINED_CUTOFF) {
+   // Change everything to how the system works.
 }
 // DO NOT DO THAT !!!
 ```
@@ -45,8 +46,7 @@ if (System.currentTimeMillis() > MY_PREDEFINED_CUTOFF) {
 
 ### Why ? Testing, testing, testing
 
---> Multiple
-
+<!--    -->
 
 ### What to do : Decouple, use logical time
 
