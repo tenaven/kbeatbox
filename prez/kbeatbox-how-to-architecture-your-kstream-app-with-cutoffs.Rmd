@@ -1,7 +1,7 @@
 --- 
 title: |
        |  KBEATBOX     \includegraphics[height=3cm]{img/kbeatbox-logo.pdf}
-       | Lesson learned : Architecturing your Cut-off and time barriers KStream app with test and replay
+       | Lesson learned : Design Cutoffs and time barriers in your KStream app for easy testing and replay
 subtitle: "KBeatbox - "
 author: tenaven
 date: 06/09/2019
@@ -31,24 +31,58 @@ Cut-off and time barriers is the very come usecase in most business environment 
 A lot of IT system are dependant of time related conditions.
 
 
-### Key point : accessing directly the wallclock system time is a no go.
+### Accessing the system time is a NO GO.
 
 Unless you really know what you are doing, accessing directly system time is a big NO NO.
 
 ```java
 // DO NOT DO THAT !!!
 if (System.currentTimeMillis() > MY_PREDEFINED_CUTOFF) {
-   // Change everything to how the system works.
+    changeEverythingInHowTheSystemWorksPastThatCUTOFF();
 }
 // DO NOT DO THAT !!!
 ```
 
+Likewise, ```TimerTask``` is a bad idea.
 
 ### Why ? Testing, testing, testing
 
-<!--    -->
+Testing with the system time is difficult :
 
-### What to do : Decouple, use logical time
+You can not easily change the system time, because the whole machine
+is dependent on the system time.
+It is possible to change the system time in a VM through.
+
+
+### Java offers some mocking ability
+
+ * Using Clock in java.time
+ * Using Aspect-Oriented Programming
+ * Using Mocks
+
+See : https://www.baeldung.com/java-override-system-time
+
+That works well for unit test but for acceptance testing
+it is still an issue.
+
+### Kafka is a great at replay!
+
+What's great about Kafka is the ability to replay anything, production, acceptance, you name it.
+
+For acceptance testing it is a fantastic ability, you can save the logs from previous days of production,
+and compare the result in time as your software evolves.
+
+Spotting the differences between version is easy if the system is :
+
+ * deterministic (no race conditions for instance)
+ * Not system time dependent
+ * No threading effect
+ * One input, one output
+
+### Good practice : Decouple, use logical time
+
+Idea : Rather than access time directly, send messages in the input kafka topic symbolize the advance of time :
+
 
 
 
