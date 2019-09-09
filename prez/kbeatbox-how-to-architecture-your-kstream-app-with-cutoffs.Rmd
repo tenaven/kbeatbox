@@ -47,11 +47,11 @@ Likewise, ```TimerTask``` is a bad idea.
 
 ### Why ? Testing, testing, testing
 
-system-time dependent system are difficult to test :
+A system-time dependent system are difficult to test :
 
-You can not easily change the system time, because system time change impacts the whole machine.
-It is possible to change the system time in a VM through.
-Replay is hellish!
+ * You cannot easily change the system time, because system time change impacts the whole machine.
+ * It is possible to change the system time in a VM through.
+ * Replay is hellish!
 
 
 ### Java offers some mocking ability
@@ -108,11 +108,12 @@ Upstream, you need a timemarker producing scheduler, KBeatbox takes as input :
 
 ###
 
-At \tenaven{}, we value feedback :
+\tenaven{} values feedback :
 
  * Do you have any question ?
  * Do you think kbeatbox could be reused in your business/mission ?
- * Do you believe replay is an important feature of Kakfa ? Have you used it ?
+ * Do you believe replay is an important feature of Kakfa ? 
+ * Do you feel it is utilized enough at your workplace ?
 
 
 
