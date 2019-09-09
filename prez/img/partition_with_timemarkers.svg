@@ -10,12 +10,12 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="439.72357mm"
-   height="75.193451mm"
-   viewBox="0 0 439.72357 75.193451"
+   height="76.737816mm"
+   viewBox="0 0 439.72357 76.737818"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="paritition_with_timemarkers.svg">
+   sodipodi:docname="partition_with_timemarkers.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -25,17 +25,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="861.24996"
-     inkscape:cy="-229.26247"
+     inkscape:zoom="3.959798"
+     inkscape:cx="512.51017"
+     inkscape:cy="-1.8998923"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1687"
+     inkscape:window-width="3373"
      inkscape:window-height="1385"
-     inkscape:window-x="1753"
-     inkscape:window-y="95"
-     inkscape:window-maximized="0"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
      fit-margin-top="1"
      fit-margin-bottom="1"
      fit-margin-left="1"
@@ -773,7 +773,12 @@
          id="tspan5334"
          x="105.14279"
          y="151.84962"
-         style="stroke-width:0.12908255">time markers</tspan></text>
+         style="stroke-width:0.12908255">time markers for</tspan><tspan
+         sodipodi:role="line"
+         x="105.14279"
+         y="159.59457"
+         style="stroke-width:0.12908255"
+         id="tspan1037">specific cutoff</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot5338"
@@ -785,7 +790,7 @@
            height="362.14285"
            x="705.71429"
            y="21.557947" /></flowRegion><flowPara
-         id="flowPara5344"></flowPara></flowRoot>    <g
+         id="flowPara5344" /></flowRoot>    <g
        id="g5378"
        transform="translate(17.386905,-13.229167)">
       <rect
