@@ -125,11 +125,10 @@ Upstream, you need a timemarker producing scheduler, KBeatbox takes as input :
 
 \tenaven{} values feedback :
 
- * Do you have any question ?
  * Do you think kbeatbox could be reused in your business/mission ?
  * Do you believe replay is an important feature of Kakfa ? 
  * Do you feel it is utilized enough at your workplace ?
-
+ * Do you have any other question ?
 
 
 
