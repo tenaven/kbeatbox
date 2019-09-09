@@ -65,7 +65,7 @@ See : https://www.baeldung.com/java-override-system-time
 But what about acceptance testing
 $\Rightarrow$ still an issue.
 
-### Kafka is a great at replay!
+### Kafka is great at replay!
 
 What's great about Kafka is its ability to replay anything, production, acceptance...
 
