@@ -31,7 +31,7 @@ Cut-off and time barriers is the very come usecase in most business environment 
 A lot of IT system are dependant of time related conditions.
 
 
-### Accessing the system time is a NO GO.
+### Accessing the system time is a /!\ NO NO.
 
 Unless you really know what you are doing, accessing directly system time is a big NO NO.
 
@@ -47,11 +47,11 @@ Likewise, ```TimerTask``` is a bad idea.
 
 ### Why ? Testing, testing, testing
 
-Testing with the system time is difficult :
+system-time dependent system are difficult to test :
 
-You can not easily change the system time, because the whole machine
-is dependent on the system time.
+You can not easily change the system time, because system time change impacts the whole machine.
 It is possible to change the system time in a VM through.
+Replay is hellish!
 
 
 ### Java offers some mocking ability
@@ -62,20 +62,22 @@ It is possible to change the system time in a VM through.
 
 See : https://www.baeldung.com/java-override-system-time
 
-That works well for unit test but for acceptance testing
-it is still an issue.
+But what about acceptance testing
+$\Rightarrow$ still an issue.
 
 ### Kafka is a great at replay!
 
-What's great about Kafka is the ability to replay anything, production, acceptance, you name it.
+What's great about Kafka is its ability to replay anything, production, acceptance...
 
-For acceptance testing it is a fantastic ability, you can save the logs from previous days of production,
-and compare the result in time as your software evolves.
+For acceptance testing it is a fantastic ability, you can save the logs from previous days of production/acceptance,
+and compare the results in time as your software evolves.
 
-Spotting the differences between version is easy if the system is :
+( e.g. how is behaving version 1.15 in comparison with version 1.14 on the exact same input ?)
+
+Spotting the differences between versions is binary diff if the system is :
 
  * deterministic (no race conditions for instance)
- * Not system time dependent
+ * Not system time dependent (Expected this one ? )
  * No threading effect
  * One input, one output
 
@@ -83,10 +85,41 @@ Spotting the differences between version is easy if the system is :
 
 Idea : Rather than access time directly, send messages in the input kafka topic symbolize the advance of time :
 
+\includegraphics[width=15cm]{img/partition_with_timemarkers.pdf}
+
+
+### More: Kbeatbox, a replay friendly scheduler
+
+\begin{columns}
+\begin{column}{0.25\textwidth}
+Upstream, you need a timemarker producing scheduler, KBeatbox takes as input :
+\begin{itemize}
+ \item heartbeats messages 
+ \item command messages
+ \item produces your timemarkers.
+\end{itemize}
+\end{column}
+\begin{column}{0.75\textwidth}
+\includegraphics[height=8cm]{img/kbeatbox.pdf}
+\end{column}
+\end{columns}
 
 
 
-# Backup slides
+###
+
+At \tenaven{}, we value feedback :
+
+ * Do you have any question ?
+ * Do you think kbeatbox could be reused in your business/mission ?
+ * Do you believe replay is an important feature of Kakfa ? Have you used it ?
+
+
+
+
+# Appendix
+
+### Appendix
 
 ### What is a Mealy finite-state machine ?
 
@@ -112,7 +145,6 @@ Idea : Rather than access time directly, send messages in the input kafka topic 
 * start another state machine
 * decision or acknowledgement
 
-# Features
 
 ### KBeatBox Deployment
 \center
@@ -187,9 +219,6 @@ Time is logged so there is a limit on the  granularity of time (few heartBeats)
 * Cancelling of task
 * Synchronous scheduling
 * Actual deployment on kafkastreams
-
-
-# Appendix
 
 ### Kscheduler  deployment
 
