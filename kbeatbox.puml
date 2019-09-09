@@ -41,8 +41,7 @@ node "generator passive 2" as gpassive2 #FF8E00
 gmaster -[hidden]- gpassive1
 gpassive1 -[hidden]- gpassive2
 }
-node "Calendar Splitter" as calendar_splitter
-node RFM
+actor "Operator programming future events" as prog_event
 
 input -right-> KBeatBox
 KBeatBox <=up=> statestore
@@ -65,9 +64,8 @@ task1 --|> input : ack
 task2 --|> input : ack
 task3 --|> input : ack
 
-DistributedHeartBeatGenerator --> input : HeartBeat
-RFM --> calendar_splitter
-calendar_splitter -up-> input : ScheduleTask
+DistributedHeartBeatGenerator -right-> input : HeartBeat
+prog_event -up-> input : ScheduleTask
 GUI --> input : ScheduleTask
 
 

@@ -89,7 +89,19 @@ Idea : Rather than access time directly, send messages in the input kafka topic 
 
 ###
 
-\includegraphics[height=\textheight]{img/decouple_and_test.pdf}
+\includegraphics[height=\textheight]{img/decouple_and_test01.pdf}
+
+###
+
+\includegraphics[height=\textheight]{img/decouple_and_test02.pdf}
+
+###
+
+\includegraphics[height=\textheight]{img/decouple_and_test03.pdf}
+
+###
+
+\includegraphics[height=\textheight]{img/decouple_and_test04.pdf}
 
 ### More: Kbeatbox, a replay-friendly scheduler
 
