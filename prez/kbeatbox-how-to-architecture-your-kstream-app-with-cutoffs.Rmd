@@ -25,14 +25,23 @@ output:
 References :
 https://www.confluent.io/blog/testing-event-driven-systems
 
+https://docs.confluent.io/current/streams/concepts.html#time
+
 https://docs.google.com/presentation/d/1sstKPzuCg-dx60AdRdP0HKX_9lwdi8syjg5eNOLniPw/edit#slide=id.p1
 
 
+https://stackoverflow.com/questions/41811539/kafka-stream-work-with-joinwindow-for-data-replay
+
+
 -->
+
 # The problem
 
 Cut-off and time barriers is the very come usecase in most business environment :
 A lot of IT system are dependant of time related conditions.
+
+### What do you mean 'cutoff' ?
+
 
 
 ### Accessing the system time is a /!\ NO NO.
@@ -49,13 +58,26 @@ if (System.currentTimeMillis() > MY_PREDEFINED_CUTOFF) {
 
 Likewise, ```TimerTask``` is a bad idea.
 
+
+### Event-time
+
+Some will say that's why we have event-time semantics.
+
+<!--
+
+Why STET did not choose that solution ? 
+Because you cannot postpone the cutoff ?
+
+-->
+
+
 ### Why ? Testing, testing, testing
 
-time-dependent system are difficult to test :
+time-dependent systems are difficult to test :
 
- * You cannot easily change the system time, because system time change impacts the whole machine.
+ * You cannot easily change the system time, because system time changes impact the whole machine.
  * It is possible to change the system time in a VM through.
- * Replay is hellish!
+ * Identical replay simply does not work ! <!--- Replay is hellish! ---> <!-- reword -->
 
 
 ### Java offers some mocking ability
@@ -66,10 +88,9 @@ time-dependent system are difficult to test :
 
 See : https://www.baeldung.com/java-override-system-time
 
-But what about acceptance testing
-$\Rightarrow$ still an issue.
+But what about acceptance testing ? $\rightarrow$ still an issue.
 
-### Kafka's replay capabilities makes testing easy
+### Kafka's replay capabilities make testing easy
 
 What's great about Kafka is its ability to replay anything ( production, acceptance...)
 
@@ -78,18 +99,23 @@ and compare the results in time as your software evolves.
 
 ( e.g. how is behaving version 1.15 in comparison with version 1.14 on the exact same input ?)
 
-Spotting the differences between versions is binary diff if the system is :
+Spotting the differences between versions is a simple binary diff provided the system is :
 
- * deterministic (no race conditions for instance)
+ * Deterministic (no race conditions for instance)
  * Not system time dependent (Expected this one ? )
  * No threading effect
- * One input, one output
+ * One-input-to-one-output
 
 # A solution : Kbeatbox
 
+###
+
+\Huge{Solution : Kbeatbox}
+
+
 ### Good practice : Decouple, use logical time
 
-Idea : Rather than access time directly, send messages in the input kafka topic symbolize the advance of time :
+Idea : Rather than access time directly, send messages in the input kafka topic to symbolize the advance of time :
 
 \includegraphics[width=15cm]{img/partition_with_timemarkers.pdf}
 
@@ -108,6 +134,19 @@ Idea : Rather than access time directly, send messages in the input kafka topic 
 ###
 
 \includegraphics[height=\textheight]{img/decouple_and_test04.pdf}
+
+<!-- Example of code ??? (Laurent) -->
+
+<!--  
+
+Frise :
+
+On veut connaitre les ventes par heure.
+TumblingWindow
+
+ >  >   >    >
+
+-->
 
 # How does KBeatbox work
 
