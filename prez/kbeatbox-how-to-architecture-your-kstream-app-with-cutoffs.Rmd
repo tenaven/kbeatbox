@@ -24,6 +24,10 @@ output:
 <!--
 References :
 https://www.confluent.io/blog/testing-event-driven-systems
+
+https://docs.google.com/presentation/d/1sstKPzuCg-dx60AdRdP0HKX_9lwdi8syjg5eNOLniPw/edit#slide=id.p1
+
+
 -->
 # The problem
 
