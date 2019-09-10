@@ -51,7 +51,7 @@ Likewise, ```TimerTask``` is a bad idea.
 
 ### Why ? Testing, testing, testing
 
-A system-time dependent system are difficult to test :
+time-dependent system are difficult to test :
 
  * You cannot easily change the system time, because system time change impacts the whole machine.
  * It is possible to change the system time in a VM through.
@@ -71,7 +71,7 @@ $\Rightarrow$ still an issue.
 
 ### Kafka's replay capabilities makes testing easy
 
-What's great about Kafka is its ability to replay anything, production, acceptance...
+What's great about Kafka is its ability to replay anything ( production, acceptance...)
 
 For acceptance testing it is a fantastic ability, you can save the logs from previous days of production/acceptance,
 and compare the results in time as your software evolves.
@@ -109,9 +109,9 @@ Idea : Rather than access time directly, send messages in the input kafka topic 
 
 \includegraphics[height=\textheight]{img/decouple_and_test04.pdf}
 
-# How does KBeatbox works
+# How does KBeatbox work
 
-### OSS library, Kbeatbox comprises :
+### An OSS library, Kbeatbox comprises :
 
  * heartbeat generator
  * kbeartbox scheduler
