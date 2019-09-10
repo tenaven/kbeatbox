@@ -33,6 +33,10 @@ https://docs.google.com/presentation/d/1sstKPzuCg-dx60AdRdP0HKX_9lwdi8syjg5eNOLn
 https://stackoverflow.com/questions/41811539/kafka-stream-work-with-joinwindow-for-data-replay
 
 
+TODO :
+
+ Maybe present a whole usecase with data and all...
+
 -->
 
 # The problem
