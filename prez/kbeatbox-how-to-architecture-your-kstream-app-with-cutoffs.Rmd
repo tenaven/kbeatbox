@@ -1,7 +1,7 @@
 --- 
 title: |
        |  KBEATBOX     \includegraphics[height=3cm]{img/kbeatbox-logo.pdf}
-       | Lesson learned : Design Cutoffs and time barriers in your KStream app for easy testing and replay
+       | Lesson learned : How to design cutoffs and time barriers in your KStream app for easy testing and replay
 subtitle: "KBeatbox - "
 author: tenaven
 date: 06/09/2019
