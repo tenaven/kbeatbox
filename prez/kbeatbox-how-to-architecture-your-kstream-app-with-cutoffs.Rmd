@@ -70,7 +70,7 @@ Some will say that's why we have event-time semantics.
 <!--
 
 Why STET did not choose that solution ? 
-Because you cannot postpone the cutoff ?
+Because you cannot postpone the cutoff if it is controled by the timestamp inside the event ...
 
 -->
 
