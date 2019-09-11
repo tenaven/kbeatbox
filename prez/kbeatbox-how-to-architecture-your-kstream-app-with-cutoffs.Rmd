@@ -50,7 +50,7 @@ A cutoff is a business event that changes the business logic.
 
 <!-- TODO: this needs to be illustrated with a diagram  -->
 
-For instance, a End-Of-Day or a End-Of-Year in accounting is a cutoff.
+For instance, a End-Of-Year in accounting is a cutoff.
 The logic before and after changes : For instance, the way tax computation is changed from one accounting period to the other.
 ( Say Corporate tax is 31% in 2018, and then it is 28% in 2019. Any resemblance to actual countries, or actual events is purely coincidental.)
 
@@ -95,10 +95,10 @@ $\rightarrow$ Event-time is the right choice.
 
 time-dependent systems are difficult to test :
 
+ * Identical replay simply does not work !
  * You cannot easily change the system time, because system time changes impact the whole machine.
  * It is possible to change the system time in a VM through.
- * Identical replay simply does not work ! <!--- Replay is hellish! ---> <!-- reword -->
-
+ * System time cannot be accelerated easily.
 
 
 ### Java offers some mocking ability to some extent
