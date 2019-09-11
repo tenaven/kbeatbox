@@ -21,6 +21,7 @@ output:
     template: template-prez.tex
 ---
 
+
 <!--
 References :
 https://www.confluent.io/blog/testing-event-driven-systems
@@ -38,6 +39,13 @@ TODO :
  Maybe present a whole usecase with data and all...
 
 -->
+# Abstract
+
+### Abstract
+
+Lesson learnt : How to create a replayable system when dealing with postponable cutoffs ?
+This usecase presents a naive solution and explains where it is wrong and
+also presents a canned OpenSource solution that has seen production in reallife to help you out in a similar context.
 
 # The problem
 
