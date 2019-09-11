@@ -44,13 +44,25 @@ TODO :
 Cut-off and time barriers is the very come usecase in most business environment :
 A lot of IT system are dependant of time related conditions.
 
-### What do you mean 'cutoff' ?
+### Context : What is a 'cutoff' ?
 
+A cutoff is a business event that changes the business logic.
 
+<!-- TODO: this needs to be illustrated with a diagram  -->
 
-### Accessing the system time is a /!\ NO NO.
+For instance, a End-Of-Day or a End-Of-Year in accounting is a cutoff.
+The logic before and after changes : For instance, the way tax computation is changed from one accounting period to the other.
+( Say Corporate tax is 31% in 2018, and then it is 28% in 2019. Any resemblance to actual countries, or actual events is purely coincidental.)
 
-Unless you really know what you are doing, accessing directly system time is a big NO NO.
+A cutoff can be postponed, based on a decision by an operator.
+( The CFO, the chief accountant, the tax administration, court decision, etc... )
+
+# How do people code that naively ?
+
+### 
+\huge{How do people code that naively}
+
+### Naive but seen in reallife code
 
 ```java
 // DO NOT DO THAT !!!
@@ -60,20 +72,24 @@ if (System.currentTimeMillis() > MY_PREDEFINED_CUTOFF) {
 // DO NOT DO THAT !!!
 ```
 
-Likewise, ```TimerTask``` is a bad idea.
+## First problem: don't access system time
+
+### First problem: don't access system time
+
+Unless you really know what you are doing, accessing directly system time is a big NO NO :
+
+It can not be replayed.
+
+Likewise, using ```TimerTask``` is a bad idea.
 
 
-### Event-time
+### Rather than accessing the system time, use event time.
 
-Some will say that's why we have event-time semantics.
+If you work with Kafka, it is very important that you get to the bottom of that :
 
-<!--
+[Kafka concepts of time](https://docs.confluent.io/current/streams/concepts.html#time)
 
-Why STET did not choose that solution ? 
-Because you cannot postpone the cutoff if it is controled by the timestamp inside the event ...
-
--->
-
+$\rightarrow$ Event-time is the right choice.
 
 ### Why ? Testing, testing, testing
 
@@ -84,13 +100,16 @@ time-dependent systems are difficult to test :
  * Identical replay simply does not work ! <!--- Replay is hellish! ---> <!-- reword -->
 
 
-### Java offers some mocking ability
+
+### Java offers some mocking ability to some extent
 
  * Using Clock in java.time
  * Using Aspect-Oriented Programming
  * Using Mocks
 
 See : https://www.baeldung.com/java-override-system-time
+
+### But java mocks are not applicable in acceptance
 
 But what about acceptance testing ? $\rightarrow$ still an issue.
 
@@ -110,7 +129,28 @@ Spotting the differences between versions is a simple binary diff provided the s
  * No threading effect
  * One-input-to-one-output
 
-# A solution : Kbeatbox
+### Naive code
+
+```java
+// DO NOT DO THAT !!!
+if (System.currentTimeMillis() > MY_PREDEFINED_CUTOFF) {
+    changeEverythingInHowTheSystemWorksPastThatCUTOFF();
+}
+// DO NOT DO THAT !!!
+```
+
+## Second problem: cut-off time cannot be CONSTANT
+
+
+### MY_PREDEFINED_CUTOFF constant : not postponable
+
+Comparing the event-time with a constant MY_PREDEFINED_CUTOFF is a bad idea :
+
+It means the cut-off can not be postponed.
+
+
+
+# A canned solution : Kbeatbox
 
 ###
 
