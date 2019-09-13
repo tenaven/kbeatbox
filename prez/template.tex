@@ -1,0 +1,548 @@
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(handout)$handout,$endif$$if(beamer)$ignorenonframetext,$endif$$for(classoption)$$classoption$$sep$,$endfor$$if(aspectratio)$aspectratio=$aspectratio$,$endif$]{$documentclass$}
+
+
+\setbeamersize{text margin left=1cm}
+\setbeamersize{text margin right=1cm}
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbols$if(navigation)$$navigation$$else$empty$endif$
+
+%\DeclareRobustCommand\bseries{\fontseries{b}\selectfont}
+%\DeclareRobustCommand\sbseries{\fontseries{sb}\selectfont}
+\DeclareRobustCommand\ltseries{\fontseries{l}\selectfont}
+%\DeclareRobustCommand\mdseries{\fontseries{l}\selectfont}
+%\DeclareRobustCommand\normalfont{\fontseries{l}\selectfont}
+%\DeclareTextFontCommand{\textbf}{\sbseries}
+%\DeclareTextFontCommand{\textsb}{\sbseries}
+\DeclareTextFontCommand{\textlt}{\ltseries}
+%\DeclareTextFontCommand{\textcl}{\clseries}
+%\DeclareTextFontCommand{\textrm}{\mdseries}
+
+
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+  \usepackage{fontawesome}
+  \usepackage[utf8]{inputenc}
+$if(euro)$
+  \usepackage{eurosym}
+$endif$
+  $if(fontfamily)$
+  \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+  $else$
+  \usepackage[default,scale=1]{opensans}
+  $endif$
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{fontspec}
+    \newfontface\adca{Adca}
+    \newfontface\baekmuk{Baekmuk Headline}
+    \newcommand\ee{\begin{baekmuk}e\end{baekmuk}}
+    \newcommand\tenaven{{\adca{\color{tared}t\ee{}n}\color{black}av\ee{}n}}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+$if(euro)$
+  \newcommand{\euro}{€}
+$endif$
+$if(mainfont)$
+    \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+$endif$
+$if(sansfont)$
+    \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
+$endif$
+$if(monofont)$
+    \setmonofont[Mapping=tex-ansi$if(monofontoptions)$,$for(monofontoptions)$$monofontoptions$$sep$,$endfor$$endif$]{$monofont$}
+$endif$
+$if(mathfont)$
+    \setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+$endif$
+$if(CJKmainfont)$
+    \usepackage{xeCJK}
+    \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
+$endif$
+\fi
+$if(theme)$
+\usetheme[$for(themeoptions)$$themeoptions$$sep$,$endfor$]{$theme$}
+$endif$
+$if(colortheme)$
+\usecolortheme{$colortheme$}
+$endif$
+$if(fonttheme)$
+\usefonttheme{$fonttheme$}
+$endif$
+$if(mainfont)$
+\usefonttheme{serif} % use mainfont rather than sansfont for slide text
+$endif$
+$if(innertheme)$
+\useinnertheme{$innertheme$}
+$endif$
+$if(outertheme)$
+\useoutertheme{$outertheme$}
+$endif$
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+$if(lang)$
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$lang$]{babel}
+$if(babel-newcommands)$
+  $babel-newcommands$
+$endif$
+\else
+  \usepackage{polyglossia}
+  \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
+$for(polyglossia-otherlangs)$
+  \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
+$endfor$
+\fi
+$endif$
+\newif\ifbibliography
+$if(natbib)$
+\usepackage{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+$endif$
+$if(listings)$
+\usepackage{listings}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+\VerbatimFootnotes % allows verbatim text in footnotes
+$endif$
+$if(tables)$
+\usepackage{longtable,booktabs}
+\usepackage{colortbl}
+\usepackage{caption}
+\captionsetup{labelformat=empty,labelsep=none}
+$if(hide_tablelines)$
+\arrayrulecolor{white} % Make rules white so we don't see them
+$endif$ 
+% These lines are needed to make table captions work with longtable:
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+$endif$
+
+$if(graphics)$
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight0.8\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+$endif$
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+$if(links-as-notes)$
+% Make links footnotes instead of hotlinks:
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+$endif$
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+$endif$
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+$if(numbersections)$
+\setcounter{secnumdepth}{5}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+$if(dir)$
+\ifxetex
+  % load bidi as late as possible as it modifies e.g. graphicx
+  $if(latex-dir-rtl)$
+  \usepackage[RTLdocument]{bidi}
+  $else$
+  \usepackage{bidi}
+  $endif$
+\fi
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \TeXXeTstate=1
+  \newcommand{\RL}[1]{\beginR #1\endR}
+  \newcommand{\LR}[1]{\beginL #1\endL}
+  \newenvironment{RTL}{\beginR}{\endR}
+  \newenvironment{LTR}{\beginL}{\endL}
+\fi
+$endif$
+$for(header-includes)$
+$header-includes$
+$endfor$
+\usepackage{tikz}
+
+$if(clientlogo)$
+  \newcommand{\logoclient}{\includegraphics[height=3em]{$clientlogo$}}
+$else$
+  \newcommand{\logoclient}{}
+$endif$
+
+$if(partnerlogo)$
+  \newcommand{\logopartner}{\includegraphics[height=3em]{$partnerlogo$}}
+$else$
+  \newcommand{\logopartner}{}
+$endif$
+\newcommand\myclip[3]{
+\begin{scope}
+\clip {#2} ;
+\fill[ #1, even odd rule] #2 #3 ;
+\end{scope}
+}
+
+\ifxetex
+\newcommand\mylogo[3]{
+  \begin{tikzpicture}[remember picture, scale=1.7,every node/.style={scale=1.7}]
+  \begin{scope}[opacity=1, scale=1/4.4]
+  \clip (-3.3,-1.2) rectangle (3.3,1.6);
+  \begin{scope}[shift={(0,0.2)}]
+  \coordinate (a1) at (-1.48 ,-0.2); 
+  \coordinate (b1) at ( 1.00 , -0.2); 
+  \coordinate (c1) at (-0.24 , 1.33); 
+  \coordinate (a2) at (-1.00 ,-0.2); 
+  \coordinate (b2) at ( 1.48 ,-0.2); 
+  \coordinate (c2) at ( 0.24 , 1.33); 
+  \coordinate (d)  at (-0.00 , 1.03);
+  \coordinate (o)  at (-0.00 ,-0.2);
+  \coordinate (e1) at (-0.24 , 0.32); 
+  \coordinate (z1) at ( 0.18 , 1.1);  
+  \coordinate (z2) at ( 1.04 ,-0.2); 
+  \coordinate (z3) at (-0.205, 0.305); 
+  \path (c1) -- (b1) coordinate[pos=0.31] (e2) -- (a2) --(c2) coordinate[pos=0.66] (d1) -- (b2) coordinate[pos=0.5] (m2) ;
+  \path (b1) --  (e1) coordinate[pos=0.5] (n1) -- (e2) coordinate[pos=0.5] (f) -- (b1) coordinate[pos=0.5] (m1);
+  \myclip{#1}{(a1) -- (c1) -- (d) -- (a2) -- cycle }{ (z1) circle (0.25)}; 
+  \myclip{#2}{(d) -- (d1) -- (f) -- (e2) -- cycle}{(z1) circle (0.25)};
+  \myclip{#3}{(m1) -- (d) -- (c2) -- (m2) -- cycle }{(z1) circle (0.25)};
+  \fill[#1] (z1) circle (0.1); 
+  \draw[#2, line width=0pt]  (d1) -- (f); 
+  \myclip{#2}{(d1) -- (f) -- (e1)  -- (n1) -- (o) -- (a2) --cycle }{ (z3) circle (0.24)}; 
+  \myclip{#1}{ (n1) -- (e1) -- (e2) -- (m1) -- cycle}{ (z3) circle (0.24)}; 
+  \fill[#1] (z3) circle (0.1); 
+  \draw[#1, line width=0pt]  (m1) -- (n1); 
+  \draw[#2, line width=0pt]  (o) -- (n1); 
+  \draw[#2, line width=0pt]  (d1) -- (f); 
+  \myclip{#1}{(n1) -- (m1) -- (b1) --cycle }{ (z2) circle (0.24)}; 
+  \myclip{#2}{(n1) -- (o) -- (b1) --cycle }{ (z2) circle (0.24)}; 
+  \myclip{#3}{(m1) -- (b1) -- (b2) -- (m2) -- cycle }{ (z2) circle (0.24)}; 
+  \fill[#1] (z2) circle (0.1); 
+  \draw[#3, line width=0pt]  (m1) -- (m2); 
+  \end{scope}
+  \node at(0,-0.61) {\tenaven}; 
+  \end{scope}
+  \end{tikzpicture}
+}
+\else
+\newcommand\mylogo[3]{
+  \includegraphics[height=3em]{logo-tenaven.pdf}
+  }
+\fi
+
+
+\newcommand{\ourlogo}{
+  \mylogo{tared}{tapink}{taredwhite}
+}
+
+
+
+$if(version)$
+  \newcommand{\version}{\input{$version$}}
+$else$
+  \newcommand{\version}{}
+$endif$
+
+$if(footertext)$
+  \newcommand{\footertext}{$footertext$ --- \version{}}
+$else$
+  \newcommand{\footertext}{}
+$endif$
+
+$if(shorttitle)$
+\title[$shorttitle$]{$title$}
+$else$
+$if(title)$
+\title{$title$}
+$endif$
+
+$endif$
+$if(subtitle)$
+\subtitle{$subtitle$}
+$endif$
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+$if(institute)$
+\institute{$for(institute)$$institute$$sep$ \and $endfor$}
+$endif$
+$if(date)$
+\date{- $date$}
+$else$
+\date{}
+$endif$
+
+\usepackage{soul}
+
+
+\usepackage[export]{adjustbox}
+\usepackage{pgfgantt}
+\usetikzlibrary{backgrounds}
+
+\definecolor{tared0}{RGB}{ 251,120,130}
+\definecolor{tared1}{RGB}{ 249, 80, 92}
+\definecolor{tared2}{RGB}{ 238, 39, 54}
+\definecolor{tared3}{RGB}{ 201,  9, 23}
+\definecolor{tared4}{RGB}{ 158,  0, 12}
+
+\definecolor{taora0}{RGB}{ 255,179,122}
+\definecolor{taora1}{RGB}{ 255,155, 82}
+\definecolor{taora2}{RGB}{ 244,127, 40}
+\definecolor{taora3}{RGB}{ 206, 93,  9}
+\definecolor{taora4}{RGB}{ 163, 69,  0}
+
+\definecolor{tablu0}{RGB}{  91,190,180}
+\definecolor{tablu1}{RGB}{  52,163,151}
+\definecolor{tablu2}{RGB}{  25,152,138}
+\definecolor{tablu3}{RGB}{   6,128,115}
+\definecolor{tablu4}{RGB}{   0,101, 90}
+
+\definecolor{tagre0}{RGB}{ 124,225,108}
+\definecolor{tagre1}{RGB}{  88,213, 68}
+\definecolor{tagre2}{RGB}{  56,202, 33}
+\definecolor{tagre3}{RGB}{  30,170,  8}
+\definecolor{tagre4}{RGB}{  18,135,  0}
+
+
+\definecolor{tared}{RGB}{238, 39, 55}
+\definecolor{tapink}{RGB}{250, 228, 239}
+\definecolor{tablack}{RGB}{33,35,34}
+\definecolor{taredwhite}{RGB}{250,200,204}
+
+
+\newcommand\talogo[3]{
+\begin{tikzpicture}[scale=0.25]
+\clip (-2,-1.5) rectangle (2,2.5);
+\begin{scope}[shift={(0,0)}]
+\draw[fill=#1,draw=#1] (-1.48,-0.2) coordinate (a1) -- (-0.24,1.33) coordinate (b1) --  (-0,1.03) coordinate (d1) -- (-1,-0.2)  coordinate (a2) --cycle;
+\draw[fill=#2, draw=#2] (a2) -- (0.24,1.33)  coordinate (b2) -- (1.48,-0.2)  coordinate (c2) -- cycle;
+\draw[fill=#1, draw=#1] (-0.24,0.32)  coordinate (a3) -- (0.17,0.84)  coordinate (b3) -- (1.005,-0.2)  coordinate (c3)-- cycle;
+\fill[fill=#3, draw=#3] (d1) -- (b2) -- (c2)  -- (c3) -- cycle;
+\draw[fill=white, draw=white]  (-0.205  ,0.305) coordinate (z1) circle(0.24);
+\draw[fill=#1, draw=#1]  (z1) circle(0.1);
+\draw[fill=white, draw=white]  (1.04,-0.2) coordinate (z2) circle(0.24);
+\draw[fill=#1, draw=#1]  (z2) circle(0.1);
+\draw[fill=white, draw=white]  (0.18,1.1) coordinate (z3) circle(0.24);
+\draw[fill=#1, draw=#1]  (z3) circle(0.1);
+\end{scope}
+\end{tikzpicture}
+}
+
+
+\newcommand{\logoinv}[3]{
+\talogo{tared2}{tared1}{tared1!70!tablu1}
+}
+
+
+% Add frame number to footline
+\setbeamercolor{bluefg}{fg=tablack!70!white}
+
+\setbeamertemplate{footline}
+{
+
+ \begin{beamercolorbox}[ht=2.25ex,dp=1ex,left]{bluefg}%
+    \ifnum\insertframenumber>1
+    \hspace{4ex} \insertframenumber\hspace{4ex}  {\footertext} 
+    \fi
+  \end{beamercolorbox}
+}        
+
+\definecolor{tagray}{RGB}{181,181,181}
+
+\setbeamercolor{title}{fg=tablack}
+\setbeamercolor{title in head/foot}{fg=tablack}
+\setbeamercolor{structure}{fg=tablack}
+\setbeamercolor{institute}{fg=tagray}
+\setbeamercolor{primary}{fg=tablack!80!tared2}
+\setbeamercolor{normal text}{fg=tablack!60!white}
+
+
+
+\newcommand{\currentcolor}[1]
+{
+\ifnum#1<2
+  \color{tared4}  
+\else
+  \ifnum#1=2
+    \color{tablu4}
+  \else
+    \ifnum#1=3
+      \color{taora4}
+    \else
+      \ifnum#1=4
+        \color{tagre4}
+      \else
+        \color{tared4}
+      \fi
+    \fi
+  \fi
+\fi
+}
+
+\newcommand{\currentlogo}[1]
+{
+\ifnum#1<2
+  \talogo{tared2}{tared0!40!white}{tared0!70!tagre0} 
+\else
+  \ifnum#1=2
+    \talogo{tablu2}{tablu0!40!white}{tablu0!70!tared0}  
+  \else
+    \ifnum#1=3
+      \talogo{taora2}{taora0!40!white}{taora0!70!tablu0}   
+    \else 
+      \ifnum#1=4
+        \talogo{tagre2}{tagre0!40!white}{tagre0!70!taora0}
+      \else 
+        \talogo{tared2}{tared0!40!white}{tared0!70!tagre0}
+      \fi
+    \fi
+  \fi
+\fi
+}
+
+
+$if(section-titles)$
+\AtBeginPart{}
+\AtBeginSection{
+ \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \Huge \insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+$else$
+\AtBeginPart{}
+\AtBeginSection{}
+\AtBeginSubsection{}
+$endif$
+
+
+% Change item for 
+\setbeamertemplate{itemize items}[circle]
+\setbeamercolor{itemize item}{bg=tared4, fg=tared4}
+\setbeamercolor{itemize subitem}{bg=tared4, fg=tared4}
+
+% Template for title page
+\setbeamertemplate{title page}
+{
+  	\vskip3em
+  		{\ourlogo{} \hfill{} 
+  		\logopartner \hfill \logoclient}
+    	\vskip0pt plus 2filll
+    		%\begin{centering}
+		\ltseries
+      		\hspace{1.5cm}{\usebeamerfont{title}\usebeamercolor[fg]{institute}{\insertsubtitle}  \insertdate } \vskip1ex
+      		{\usebeamerfont{title}\usebeamercolor[fg]{title}\huge{\inserttitle}}\newline  
+    		%\end{centering}	
+	\vskip0pt plus 1filll
+}
+
+\setbeamertemplate{frametitle}
+{
+\ifxetex    
+    \nointerlineskip
+    \begin{beamercolorbox}[sep=0.3cm,ht=2em,wd=\paperwidth]{frametitle}
+        \vbox{}\vskip-2ex%
+        \hskip-5.6mm\raisebox{-3mm}{\currentlogo{\insertsectionnumber}}
+        \strut\insertframetitle\strut
+        \vskip-1.1ex%
+    \end{beamercolorbox}
+    {\currentcolor{\insertsectionnumber}\hrule}
+\else
+    \nointerlineskip
+    \begin{beamercolorbox}[sep=0.3cm,ht=2em,wd=\paperwidth]{frametitle}
+        \vbox{}\vskip-2ex%
+        \hskip-5.6mm\raisebox{-3mm}{\currentlogo{\insertsectionnumber}}
+        \strut\insertframetitle\strut
+        \vskip-1.1ex%
+    \end{beamercolorbox}
+    {\currentcolor{\insertsectionnumber}\hrule}
+\fi
+} 
+
+%-----------------------------------------------
+
+\begin{document}
+
+$if(title)$
+\frame{\titlepage}
+$endif$
+
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+$if(toc)$
+\begin{frame}
+\frametitle{\contentsname}
+\tableofcontents
+\end{frame}
+
+$endif$
+$body$
+
+$if(natbib)$
+$if(bibliography)$
+$if(biblio-title)$
+$if(book-class)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+\begin{frame}[allowframebreaks]{$biblio-title$}
+\bibliographytrue
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+\end{frame}
+
+$endif$
+$endif$
+$if(biblatex)$
+\begin{frame}[allowframebreaks]{$biblio-title$}
+\bibliographytrue
+\printbibliography[heading=none]
+\end{frame}
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}
+
