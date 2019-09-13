@@ -53,9 +53,9 @@ This usecase presents :
 
 ### Business Value
 
- * Compliance with cyber resilience regulation ( for e.g. [OICV-IOSCO/Guidance on cyber resilience for financial market infrastructures](https://www.bis.org/cpmi/publ/d146.pdf) )
+ * Compliance with cyber resilience regulation ( e.g. [OICV-IOSCO/Guidance on cyber resilience for financial market infrastructures](https://www.bis.org/cpmi/publ/d146.pdf) )
  * Better quality of software
- * Testable software is software that can easily gain features.
+ * Testable software is software that can adapt fast to changing circumstances.
  
 
 # The problem
