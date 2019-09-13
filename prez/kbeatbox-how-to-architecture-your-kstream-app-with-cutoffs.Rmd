@@ -114,16 +114,16 @@ $\rightarrow$ Event-time is the right choice.
 
 
 \begin{columns}
-\begin{column}{0.65\textwidth}
+\begin{column}{0.55\textwidth}
 Upstream, you need a timemarker producing scheduler, KBeatbox takes as input :
 
 \begin{itemize}
- \item \makebox[2.5cm]{Event time\hfill} Real time when the event/data item was created
- \item \makebox[2.5cm]{Ingestion time\hfill} System time when the data item was received
- \item \makebox[2.5cm]{Processing Time\hfill} System time when the data item is processed
+ \item \makebox[2.7cm]{Event time\hfill} Real time when the event/data item was created
+ \item \makebox[2.7cm]{Ingestion time\hfill} System time when the data item was received
+ \item \makebox[2.7cm]{Processing Time\hfill} System time when the data item is processed
 \end{itemize}
 \end{column}
-\begin{column}{0.30\textwidth}
+\begin{column}{0.40\textwidth}
 \includegraphics[width=6cm]{img/processing-vs-event-time.pdf}
 \end{column}
 \end{columns}
