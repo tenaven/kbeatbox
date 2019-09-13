@@ -43,13 +43,17 @@ TODO :
 ### Abstract
 
 Lesson learnt : How to create a replayable system when dealing with postponable cutoffs ?
-This usecase presents a naive solution and explains where it is wrong and
-also presents a canned OpenSource solution that has seen production in real-life to help you out in a similar context.
+Replayability is an essential characteristic of your Kafka solution if it needs to be cyber resilient.
+This usecase presents :
+
+ * a naive solution and explains where it is wrong
+ * an OpenSource solution to reuse in a similar context
+ (that has seen production in real-life.)
 
 
 ### Business Value
 
- * Compliance with cyber resilience regulation [OICV-IOSCO/Guidance on cyber resilience for financial market infrastructures](https://www.bis.org/cpmi/publ/d146.pdf)
+ * Compliance with cyber resilience regulation ( for e.g. [OICV-IOSCO/Guidance on cyber resilience for financial market infrastructures](https://www.bis.org/cpmi/publ/d146.pdf) )
  * Better quality of software
  * Testable software is software that can easily gain features.
  
@@ -105,6 +109,25 @@ If you work with Kafka, it is very important that you get to the bottom of that 
 [Kafka concepts of time](https://docs.confluent.io/current/streams/concepts.html#time)
 
 $\rightarrow$ Event-time is the right choice.
+
+### Reminder : What's event time ?
+
+
+\begin{columns}
+\begin{column}{0.65\textwidth}
+Upstream, you need a timemarker producing scheduler, KBeatbox takes as input :
+
+\begin{itemize}
+ \item \makebox[2.5cm]{Event time\hfill} Real time when the event/data item was created
+ \item \makebox[2.5cm]{Ingestion time\hfill} System time when the data item was received
+ \item \makebox[2.5cm]{Processing Time\hfill} System time when the data item is processed
+\end{itemize}
+\end{column}
+\begin{column}{0.30\textwidth}
+\includegraphics[width=6cm]{img/processing-vs-event-time.pdf}
+\end{column}
+\end{columns}
+
 
 ### Why ? Testing, testing, testing
 
