@@ -106,7 +106,7 @@ Likewise, using ```TimerTask``` is a bad idea.
 
 If you work with Kafka, it is very important that you get to the bottom of that :
 
-[Kafka concepts of time](https://docs.confluent.io/current/streams/concepts.html#time)
+
 
 $\rightarrow$ Event-time is the right choice.
 
@@ -127,6 +127,8 @@ Upstream, you need a timemarker producing scheduler, KBeatbox takes as input :
 \includegraphics[width=6cm]{img/processing-vs-event-time.pdf}
 \end{column}
 \end{columns}
+
+[Kafka concepts of time](https://docs.confluent.io/current/streams/concepts.html#time)
 
 
 ### Why ? Testing, testing, testing
