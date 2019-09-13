@@ -46,6 +46,14 @@ Lesson learnt : How to create a replayable system when dealing with postponable 
 This usecase presents a naive solution and explains where it is wrong and
 also presents a canned OpenSource solution that has seen production in real-life to help you out in a similar context.
 
+
+### Business Value
+
+ * Compliance with cyber resilience regulation [OICV-IOSCO/Guidance on cyber resilience for financial market infrastructures](https://www.bis.org/cpmi/publ/d146.pdf)
+ * Better quality of software
+ * Testable software is software that can easily gain features.
+ 
+
 # The problem
 
 Cut-off and time barriers is the very come usecase in most business environment :
