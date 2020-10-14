@@ -18,7 +18,7 @@ output:
     toc: yes
     slide_level: 3
     keep_tex: no
-    template: template.tex
+    template: ~/Modèles/template-prez.tex
 ---
 
 
@@ -42,7 +42,7 @@ TODO :
 
 ### Abstract
 
-Lesson learnt : How to create a replayable system when dealing with postponable cutoffs ?
+Lesson learned : How to create a replayable system when dealing with postponable cutoffs ?
 Replayability is an essential characteristic of your Kafka solution if it needs to be cyber resilient.
 This usecase presents :
 
@@ -53,14 +53,14 @@ This usecase presents :
 
 ### Business Value
 
- * Compliance with cyber resilience regulation ( e.g. [OICV-IOSCO/Guidance on cyber resilience for financial market infrastructures](https://www.bis.org/cpmi/publ/d146.pdf) )
- * Better quality of software
- * Testable software is software that can adapt fast to changing circumstances.
- 
+ * Compliance with European cyber resilience regulation. ( e.g. [OICV-IOSCO/Guidance on cyber resilience for financial market infrastructures](https://www.bis.org/cpmi/publ/d146.pdf) )
+ * Testable software can adapt swiftly to changing circumstances. 
+ * Reproducible software is a better kind of software.
+
 
 # The problem
 
-Cut-off and time barriers is the very come usecase in most business environment :
+Cut-off and time barriers is the very common usecase in most business environments :
 A lot of IT system are dependant of time related conditions.
 
 ### Context : What is a 'cutoff' ?
@@ -138,7 +138,7 @@ time-dependent systems are difficult to test :
  * Identical replay simply does not work !
  * You cannot easily change the system time, because system time changes impact the whole machine.
  * It is possible to change the system time in a VM through.
- * System time cannot be accelerated easily.
+ * System time cannot be accelerated easily. (so test are long running)
 
 
 ### Java offers some mocking ability to some extent
@@ -169,7 +169,7 @@ Spotting the differences between versions is a simple binary diff provided the s
  * No threading effect
  * One-input-to-one-output
 
-### Naive code
+### Naive code (reminder)
 
 ```java
 // DO NOT DO THAT !!!
@@ -179,7 +179,7 @@ if (System.currentTimeMillis() > MY_PREDEFINED_CUTOFF) {
 // DO NOT DO THAT !!!
 ```
 
-## Second problem: cut-off may be postponed
+## Second problem: cut-off may need to be postponed
 
 
 ### MY_PREDEFINED_CUTOFF constant : not postponable
@@ -188,14 +188,28 @@ Comparing the event-time with a constant MY_PREDEFINED_CUTOFF is a bad idea :
 
 It means the cut-off can not be postponed.
 
+Postponing a cut-off is almost always an operational requirement.
+
+Design people may tell you to keep things simple and put the cut-off in the configuration.
+(or worse in the code)
+
+It is almost always bad advice : 
+
+Because IT systems fail, because they can be hacked, operations will need to postpone the cut-off at some point.
 
 
-# A canned solution : Kbeatbox
+
+# Solution : Kbeatbox
 
 ###
 
-\Huge{Solution : Kbeatbox}
+\Huge 
 
+Solution : Kbeatbox \href{https://github.com/tenaven/kbeatbox}{\includegraphics[height=1ex]{img/github-repo.pdf}}
+
+
+
+ 
 
 ### Good practice : Decouple, use logical time
 
